@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CoffeeTracker.UgniusFalze.Models;
+using CoffeeTrackerAPI.Repositories;
 
 namespace CoffeeTrackerAPI.Controllers
 {
@@ -13,36 +14,32 @@ namespace CoffeeTrackerAPI.Controllers
     [ApiController]
     public class CoffeeController : ControllerBase
     {
-        private readonly CoffeeRecordContext _context;
+        private readonly ICoffeeRepository _repository;
 
-        public CoffeeController(CoffeeRecordContext context)
+        public CoffeeController(ICoffeeRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
-
-        // GET: api/Coffee
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CoffeeRecord>>> GetCoffeeRecords()
         {
-            return await _context.CoffeeRecords.ToListAsync();
+            return await _repository.GetRecords();
         }
-
-        // GET: api/Coffee/5
+        
         [HttpGet("{id}")]
-        public async Task<ActionResult<CoffeeRecord>> GetCoffeeRecord(int id)
+        public async Task<ActionResult<CoffeeRecord>> GetRecord(int id)
         {
-            var coffeeRecord = await _context.CoffeeRecords.FindAsync(id);
+            var shift = await _repository.GetCoffeeRecord(id);
 
-            if (coffeeRecord == null)
+            if (shift == null)
             {
                 return NotFound();
             }
 
-            return coffeeRecord;
+            return shift;
         }
-
-        // PUT: api/Coffee/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCoffeeRecord(int id, CoffeeRecord coffeeRecord)
         {
@@ -51,11 +48,9 @@ namespace CoffeeTrackerAPI.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(coffeeRecord).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                await _repository.UpdateCoffeeRecord(coffeeRecord);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -71,37 +66,32 @@ namespace CoffeeTrackerAPI.Controllers
 
             return NoContent();
         }
-
-        // POST: api/Coffee
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        
         [HttpPost]
         public async Task<ActionResult<CoffeeRecord>> PostCoffeeRecord(CoffeeRecord coffeeRecord)
         {
-            _context.CoffeeRecords.Add(coffeeRecord);
-            await _context.SaveChangesAsync();
+            await _repository.AddCoffeeRecord(coffeeRecord);
 
-            return CreatedAtAction("GetCoffeeRecord", new { id = coffeeRecord.CoffeeRecordId }, coffeeRecord);
+            return CreatedAtAction(nameof(GetRecord), new { id = coffeeRecord.CoffeeRecordId }, coffeeRecord);
         }
-
-        // DELETE: api/Coffee/5
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCoffeeRecord(int id)
         {
-            var coffeeRecord = await _context.CoffeeRecords.FindAsync(id);
+            var coffeeRecord = await _repository.GetCoffeeRecord(id);
             if (coffeeRecord == null)
             {
                 return NotFound();
             }
 
-            _context.CoffeeRecords.Remove(coffeeRecord);
-            await _context.SaveChangesAsync();
+            await _repository.DeleteCoffeeRecord(coffeeRecord);
 
             return NoContent();
         }
 
         private bool CoffeeRecordExists(int id)
         {
-            return _context.CoffeeRecords.Any(e => e.CoffeeRecordId == id);
+            return _repository.CoffeeRecordExists(id);
         }
     }
 }

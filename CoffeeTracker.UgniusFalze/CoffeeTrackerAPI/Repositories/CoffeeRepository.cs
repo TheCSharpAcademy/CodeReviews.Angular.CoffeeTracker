@@ -1,33 +1,48 @@
 ﻿using CoffeeTracker.UgniusFalze.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoffeeTrackerAPI.Repositories;
 
 public class CoffeeRepository(CoffeeRecordContext coffeeRecordContext) : ICoffeeRepository
 {
-    private CoffeeRecordContext CoffeeRecordContext { get; set; } = coffeeRecordContext;
+    private CoffeeRecordContext CoffeeRecordContext { get;} = coffeeRecordContext;
 
-    public IEnumerable<CoffeeRecord> GetRecords()
+    public async Task<ActionResult<IEnumerable<CoffeeRecord>>> GetRecords()
     {
-        throw new NotImplementedException();
+        return await CoffeeRecordContext.CoffeeRecords.ToListAsync();
     }
 
-    public void AddCoffeeRecord(CoffeeRecord record)
+    public async Task AddCoffeeRecord(CoffeeRecord record)
     {
-        throw new NotImplementedException();
+        CoffeeRecordContext.CoffeeRecords.Add(record);
+        await SaveChanges();
     }
 
     public bool CoffeeRecordExists(int id)
     {
-        throw new NotImplementedException();
+        return CoffeeRecordContext.CoffeeRecords.Any(records => records.CoffeeRecordId == id);
     }
 
-    public void DeleteCoffeeRecord(int id)
+    public async Task DeleteCoffeeRecord(CoffeeRecord record)
     {
-        throw new NotImplementedException();
+        CoffeeRecordContext.CoffeeRecords.Remove(record);
+        await SaveChanges();
     }
 
-    public void UpdateCoffeeRecord(CoffeeRecord record)
+    public async Task UpdateCoffeeRecord(CoffeeRecord record)
     {
-        throw new NotImplementedException();
+        CoffeeRecordContext.Entry(record).State = EntityState.Modified;
+        await SaveChanges();
+    }
+
+    public async Task<CoffeeRecord?> GetCoffeeRecord(int id)
+    {
+        return await CoffeeRecordContext.CoffeeRecords.FindAsync(id);
+    }
+
+    private async Task SaveChanges()
+    {
+        await CoffeeRecordContext.SaveChangesAsync();
     }
 }
