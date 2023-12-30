@@ -3,7 +3,11 @@ using CoffeeTrackerAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddCors(options => options.AddPolicy(name: "CoffeeTrackerUI",
+    policy =>
+    {
+        policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+    }));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<CoffeeRecordContext>(opt =>
@@ -19,8 +23,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("CoffeeTrackerUI");
 app.UseHttpsRedirection();
+
 
 app.MapControllers();
 
