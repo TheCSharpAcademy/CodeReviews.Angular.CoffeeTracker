@@ -27,4 +27,23 @@ export class CoffeeRecordServiceService {
     })
   );
  }
+
+ getCoffeeRecord(id: number) : Observable<CoffeeRecord> {
+  const url = `${this.apiUrl}/${id}`;
+  return this.http.get<CoffeeRecord>(url).pipe(
+    map((data) => {
+      data.recordDate = new Date(data.recordDate);
+      return data;
+    })
+  )
+ }
+
+ insertCoffeeRecord(coffeeRecord: CoffeeRecord) : Observable<CoffeeRecord> {
+  return this.http.post<CoffeeRecord>(this.apiUrl, coffeeRecord, this.httpOptions).pipe(
+    map((data) => {
+      data.recordDate = new Date(data.recordDate);
+      return data;
+    })
+  )
+ }
 }

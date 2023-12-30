@@ -1,0 +1,29 @@
+<form class="form" #f="ngForm" (ngSubmit)="onSubmit()">
+  <div class="coffee-card">
+      <div class="coffee-record-header">
+        <h1>Coffee Record</h1>
+      </div>
+      <div>
+        <label for="coffee-amount">Coffee cups consumed: </label>
+        <input id="coffee-amount" type="number" name="cupsOfCoffee" [(ngModel)]="coffeeRecord.cupsOfCoffee" placeholder="0" required #cupsOfCoffee="ngModel" min="0">
+      </div>
+      <div>
+          <label for="coffee-date">The date of the record: </label>
+          <input id="coffee-date" type="date" name="recordDate" [(ngModel)]="coffeeRecord.recordDate.toISOString().split('T')[0]" placeholder="2023-.." required #date="ngModel">
+        </div>
+        <div
+          *ngIf="cupsOfCoffee.invalid && (cupsOfCoffee.dirty || cupsOfCoffee.touched)"
+          class="alert"
+        >
+          <div *ngIf="cupsOfCoffee.errors?.['required']">Cups of coffee is required.</div>
+          <div *ngIf="cupsOfCoffee.errors?.['min']">Cups of coffee cannot be negative.</div>
+        </div>
+        <div
+          *ngIf="date.invalid"
+          class="alert"
+        >
+          <div *ngIf="date.errors?.['required']">Date is required.</div>
+        </div>
+        <button type="submit" [disabled]="f.invalid">save</button>
+  </div>
+</form>
