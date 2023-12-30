@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CoffeeRecord } from '../CoffeeRecord';
 import { CoffeeRecordServiceService } from '../services/coffee-record-service.service';
 
@@ -10,6 +10,9 @@ import { CoffeeRecordServiceService } from '../services/coffee-record-service.se
 })
 export class CoffeeRecordsComponent {
   coffeeRecords: CoffeeRecord[] = [];
+  dates: Date[] = [];
+  filterDate?:Date;
+
 
   constructor(private coffeeService:CoffeeRecordServiceService){}
 
@@ -19,7 +22,16 @@ export class CoffeeRecordsComponent {
 
   getCoffeeRecords(): void {
     this.coffeeService.getCoffeeRecords()
-      .subscribe(coffeeRecords => this.coffeeRecords = coffeeRecords);
+      .subscribe(coffeeRecords => {
+        this.coffeeRecords = coffeeRecords;
+        for(let i = 0; i<this.coffeeRecords.length; i++){
+          let coffeeRecordDate = new Date(this.coffeeRecords[i].recordDate.toISOString());
+          coffeeRecordDate.setHours(0, 0, 0, 0);
+          if(this.dates.find((date) => date.getTime() === coffeeRecordDate.getTime()) === undefined){
+            this.dates.push(coffeeRecordDate);
+          }
+        }
+      });
   }
 
   delete(coffeeRecord: CoffeeRecord): void{

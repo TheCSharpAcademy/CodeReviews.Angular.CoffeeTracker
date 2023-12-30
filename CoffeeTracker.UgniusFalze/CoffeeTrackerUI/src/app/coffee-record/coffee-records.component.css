@@ -84,3 +84,10 @@ a{
 a:hover {
     background-color: rgb(221, 159, 78);
 }
+
+.table-filter{
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

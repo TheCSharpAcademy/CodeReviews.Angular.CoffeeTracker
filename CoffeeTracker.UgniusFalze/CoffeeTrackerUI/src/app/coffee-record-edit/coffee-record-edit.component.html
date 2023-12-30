@@ -9,7 +9,7 @@
       </div>
       <div>
           <label for="coffee-date">The date of the record: </label>
-          <input id="coffee-date" type="date" name="recordDate" [ngModel]="coffeeRecord.recordDate | date:'yyyy-MM-dd'" (ngModelChange)="coffeeRecord.recordDate=$event" placeholder="2023-.." required #inputDate="ngModel">
+          <input id="coffee-date" type="datetime-local" name="recordDate" [ngModel]="coffeeRecord.recordDate | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="coffeeRecord.recordDate=$event" placeholder="2023-.." required #inputDate="ngModel">
         </div>
         <div
           *ngIf="cupsOfCoffee.invalid && (cupsOfCoffee.dirty || cupsOfCoffee.touched)"

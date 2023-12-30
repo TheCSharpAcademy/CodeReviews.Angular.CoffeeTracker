@@ -1,5 +1,14 @@
 <div class="table-container">
     <div class="table-and-button">
+        <div class="table-filter">
+            <strong>Date Filter</strong>
+            <select class="form-control"
+                    [(ngModel)]="filterDate">
+                <option [ngValue] = null></option>      
+                <option *ngFor="let date of dates"
+                    [ngValue]="date">{{ date.toDateString() }}</option>
+            </select>
+        </div>  
         <div class="table-wrapped">
             <table class="coffee-table">
                 <thead>
@@ -9,9 +18,9 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tr *ngFor = "let coffeeRecord of coffeeRecords">
+                <tr *ngFor = "let coffeeRecord of coffeeRecords | tableFilter: filterDate">
                     <td>{{coffeeRecord.cupsOfCoffee}}</td>
-                    <td>{{coffeeRecord.recordDate.toLocaleDateString()}}</td>
+                    <td>{{coffeeRecord.recordDate.toUTCString()}}</td>
                     <td class="table-actions">
                         <a routerLink="/update/{{coffeeRecord.coffeeRecordId}}">Edit</a>
                         <a (click)="delete(coffeeRecord)">Delete</a>
@@ -22,3 +31,4 @@
         <a class="button" routerLink="/add">+</a>
     </div>
 </div>
+
