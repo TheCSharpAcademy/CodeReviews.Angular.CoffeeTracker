@@ -22,7 +22,7 @@ namespace CoffeeTracker.UgniusFalze.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CoffeeTrackerAPI.Models.CoffeeRecord", b =>
+            modelBuilder.Entity("CoffeeTracker.UgniusFalze.Models.CoffeeRecord", b =>
                 {
                     b.Property<int>("CoffeeRecordId")
                         .ValueGeneratedOnAdd()
@@ -33,8 +33,8 @@ namespace CoffeeTracker.UgniusFalze.Migrations
                     b.Property<int>("CupsOfCoffee")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly>("RecordDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("RecordDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("CoffeeRecordId");
 

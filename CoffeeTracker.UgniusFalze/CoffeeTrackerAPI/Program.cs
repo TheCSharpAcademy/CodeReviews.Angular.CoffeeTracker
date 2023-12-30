@@ -1,4 +1,5 @@
 using CoffeeTracker.UgniusFalze.Models;
+using CoffeeTrackerAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<CoffeeRecordContext>(opt =>
     opt.UseSqlServer(
         "Server=(LocalDb)\\MSSQLLocalDB;Initial Catalog=CoffeeRecords;Integrated Security=SSPI;Trusted_Connection=yes"));
+builder.Services.AddScoped<ICoffeeRepository, CoffeeRepository>();
 builder.Services.AddControllers();
 var app = builder.Build();
 
