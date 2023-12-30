@@ -51,4 +51,9 @@ export class CoffeeRecordServiceService {
   const url = `${this.apiUrl}/${id}`;
   return this.http.put<any>(url, coffeeRecord, this.httpOptions);
  }
+
+ deleteCoffeeRecord(id:number):Observable<any>{
+  const url = `${this.apiUrl}/${id}`;
+  return this.http.delete(url, this.httpOptions);
+ }
 }

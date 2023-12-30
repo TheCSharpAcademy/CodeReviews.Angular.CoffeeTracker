@@ -14,7 +14,7 @@
                     <td>{{coffeeRecord.recordDate.toLocaleDateString()}}</td>
                     <td class="table-actions">
                         <a routerLink="/update/{{coffeeRecord.coffeeRecordId}}">Edit</a>
-                        <a>Delete</a>
+                        <a (click)="delete(coffeeRecord)">Delete</a>
                     </td>
                 </tr>
             </table>

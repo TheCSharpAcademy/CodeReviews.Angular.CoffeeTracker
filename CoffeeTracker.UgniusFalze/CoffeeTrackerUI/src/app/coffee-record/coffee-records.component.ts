@@ -21,4 +21,9 @@ export class CoffeeRecordsComponent {
     this.coffeeService.getCoffeeRecords()
       .subscribe(coffeeRecords => this.coffeeRecords = coffeeRecords);
   }
+
+  delete(coffeeRecord: CoffeeRecord): void{
+    this.coffeeRecords = this.coffeeRecords.filter(cR => cR !== coffeeRecord);
+    this.coffeeService.deleteCoffeeRecord(coffeeRecord.coffeeRecordId).subscribe();
+  }
 }
