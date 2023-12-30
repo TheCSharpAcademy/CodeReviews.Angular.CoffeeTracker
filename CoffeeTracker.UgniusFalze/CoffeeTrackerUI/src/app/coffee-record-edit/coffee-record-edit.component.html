@@ -9,7 +9,7 @@
       </div>
       <div>
           <label for="coffee-date">The date of the record: </label>
-          <input id="coffee-date" type="date" name="recordDate" [(ngModel)]="coffeeRecord.recordDate.toISOString().split('T')[0]" placeholder="2023-.." required #date="ngModel">
+          <input id="coffee-date" type="date" name="recordDate" [ngModel]="coffeeRecord.recordDate | date:'yyyy-MM-dd'" (ngModelChange)="coffeeRecord.recordDate=$event" placeholder="2023-.." required #inputDate="ngModel">
         </div>
         <div
           *ngIf="cupsOfCoffee.invalid && (cupsOfCoffee.dirty || cupsOfCoffee.touched)"
@@ -19,10 +19,10 @@
           <div *ngIf="cupsOfCoffee.errors?.['min']">Cups of coffee cannot be negative.</div>
         </div>
         <div
-          *ngIf="date.invalid"
+          *ngIf="inputDate.invalid"
           class="alert"
         >
-          <div *ngIf="date.errors?.['required']">Date is required.</div>
+          <div *ngIf="inputDate.errors?.['required']">Date is required.</div>
         </div>
         <button type="submit" [disabled]="f.invalid">save</button>
   </div>

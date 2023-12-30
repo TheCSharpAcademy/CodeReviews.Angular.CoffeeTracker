@@ -22,6 +22,10 @@ export class CoffeeRecordEditComponent {
     'recordDate': new Date()
   }
 
+  ngOnInit(){
+    this.getCoffeeRecord();
+  }
+
   getCoffeeRecord(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if(id !== null){
@@ -39,7 +43,10 @@ export class CoffeeRecordEditComponent {
       this.coffeeService.insertCoffeeRecord(this.coffeeRecord)
         .subscribe(() => this.goBack());
     }else{
-
+      this.coffeeService.updateCoffeeRecord(this.coffeeRecord, this.coffeeRecord.coffeeRecordId)
+        .subscribe({
+          next: () => this.goBack() 
+        });
     }
   }
 }

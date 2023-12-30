@@ -6,11 +6,16 @@
                     <tr>
                         <th>Ammount consumed</th>
                         <th>When the record was created</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tr *ngFor = "let coffeeRecord of coffeeRecords">
                     <td>{{coffeeRecord.cupsOfCoffee}}</td>
                     <td>{{coffeeRecord.recordDate.toLocaleDateString()}}</td>
+                    <td class="table-actions">
+                        <a routerLink="/update/{{coffeeRecord.coffeeRecordId}}">Edit</a>
+                        <a>Delete</a>
+                    </td>
                 </tr>
             </table>
         </div>

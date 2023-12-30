@@ -12,7 +12,7 @@ export class CoffeeRecordServiceService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  private apiUrl:string = 'https://localhost:7106/api/Coffee/'
+  private apiUrl:string = 'https://localhost:7106/api/Coffee'
 
  constructor(private http:HttpClient) { }
  
@@ -45,5 +45,10 @@ export class CoffeeRecordServiceService {
       return data;
     })
   )
+ }
+
+ updateCoffeeRecord(coffeeRecord: CoffeeRecord, id:number) : Observable<any> {
+  const url = `${this.apiUrl}/${id}`;
+  return this.http.put<any>(url, coffeeRecord, this.httpOptions);
  }
 }
