@@ -10,23 +10,23 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './records/index/index.component';
 import { CreateComponent } from './records/create/create.component';
 import { EditComponent } from './records/edit/edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    IndexComponent,
-    CreateComponent,
-    EditComponent
-  ],
+  declarations: [AppComponent, IndexComponent, CreateComponent, EditComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
-  providers: [
-    DatePipe
-  ],
-  bootstrap: [AppComponent]
+  providers: [DatePipe],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

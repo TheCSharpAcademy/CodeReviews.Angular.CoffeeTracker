@@ -5,29 +5,60 @@
   <form [formGroup]="createRecordForm" (ngSubmit)="onFormSubmit()">
     <div class="form-group">
       <label for="drinkDate">Drink Date: </label>
-      <input id="drinkDate" type="datetime" formControlName="drinkDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['drinkDate'].errors }" />
-      <div *ngIf="submitted && f['drinkDate'].errors" class="invalid-feedback">
-        <div *ngIf="f['drinkDate'].errors['required']">Drink Date is required</div>
-      </div>
+      <input
+        matInput
+        formControlName="drinkDate"
+        placeholder="Drink date"
+        [matDatepicker]="picker"
+        (click)="picker.open()"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker" disabled="false">
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker [disabled]="false"> </mat-datepicker>
     </div>
     <div class="form-group">
       <label for="energyDrink">Energy Drink Name: </label>
-      <input id="energyDrink" type="text" formControlName="energyDrink" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['energyDrink'].errors }" />
-      <div *ngIf="submitted && f['energyDrink'].errors" class="invalid-feedback">
-        <div *ngIf="f['energyDrink'].errors['required']">Energy Drink Name is required</div>
-        <div *ngIf="f['energyDrink'].errors['minlength']">Energy Drink Name must be at least 4 characters</div>
+      <input
+        id="energyDrink"
+        type="text"
+        formControlName="energyDrink"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['energyDrink'].errors }"
+      />
+      <div
+        *ngIf="submitted && f['energyDrink'].errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="f['energyDrink'].errors['required']">
+          Energy Drink Name is required
+        </div>
+        <div *ngIf="f['energyDrink'].errors['minlength']">
+          Energy Drink Name must be at least 4 characters
+        </div>
       </div>
     </div>
     <div class="form-group">
       <label for="canSize">Can Size in Milliliters: </label>
-      <input id="canSize" type="number" formControlName="canSize" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['canSize'].errors }" />
+      <input
+        id="canSize"
+        type="number"
+        formControlName="canSize"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['canSize'].errors }"
+      />
       <div *ngIf="submitted && f['canSize'].errors" class="invalid-feedback">
         <div *ngIf="f['canSize'].errors['required']">Can Size is required</div>
       </div>
     </div>
     <div class="form-group">
       <button type="submit">Submit</button>
-      <button type="button" (click)="onReset()" class="btn btn-warning float-right">Reset</button>
+      <button
+        type="button"
+        (click)="onReset()"
+        class="btn btn-warning float-right"
+      >
+        Reset
+      </button>
     </div>
   </form>
 </div>
