@@ -1,0 +1,14 @@
+<form
+  [formGroup]="coffeeForm"
+  class="flex flex-col my-2"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="text-center font-medium">
+    {{ cups.value }}
+    <i class="fa-solid fa-mug-hot"></i>
+  </div>
+  <input type="date" formControlName="date" />
+  <input type="range" min="1" max="10" formControlName="cups" value="1" #cups />
+  <input type="hidden" formControlName="id" />
+  <button type="submit">Submit</button>
+</form>

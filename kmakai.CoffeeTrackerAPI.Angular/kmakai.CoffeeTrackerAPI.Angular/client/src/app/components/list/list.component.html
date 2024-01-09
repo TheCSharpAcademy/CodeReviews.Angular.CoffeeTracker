@@ -1,0 +1,16 @@
+<ul class="flex flex-col items-center">
+  <li
+    *ngFor="let item of coffees"
+    class="flex border items-center px-2 gap-2 my-1 w-full justify-evenly"
+  >
+    <span class="font-medium">{{ item.date | date : "shortDate" }}</span>
+
+    <span class="cups font-bold p-2 w-fit flex items-center gap-2"
+      >{{ item.cups }} <i class="fa-solid fa-mug-hot"></i
+    ></span>
+
+    <button (click)="deleteCoffee(item.id!)" class="hover:text-slate-300">
+      <i class="fa-solid fa-trash"></i>
+    </button>
+  </li>
+</ul>
