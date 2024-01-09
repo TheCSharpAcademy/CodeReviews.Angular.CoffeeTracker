@@ -1,0 +1,93 @@
+*{
+    font-family: Helvetica;
+}
+.coffee-table{
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+th, td{
+    text-align: center;
+    padding: 8px;
+}
+th{
+    color: black;
+    background-color: burlywood;
+}
+.table-wrapped{
+    margin: 10px 70px 10px;
+    border: 1px solid black;
+    width: 100%;
+
+}
+.table-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-and-button{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+}
+
+.button{
+    align-self:flex-end;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: burlywood;
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    padding: .5rem .75rem;
+    font-weight: 600;
+    flex: 0 0 auto;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: rgb(221, 159, 78);
+}
+
+.table-actions{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+}
+
+a{
+    align-self:flex-end;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: burlywood;
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    padding: .5rem .75rem;
+    font-weight: 600;
+    flex: 0 0 auto;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: rgb(221, 159, 78);
+}
+
+.table-filter{
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

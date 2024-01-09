@@ -1,0 +1,33 @@
+.form{
+    display: flex;
+    justify-content: center;
+}
+
+.coffee-card{
+    padding: 10px 100px;
+    border: 1px solid rgba(0,0,0,1);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.coffee-record-header{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    float: right;
+}
+
+.alert{
+    background: #fff0f4; 
+    color: #c51244;
+}
