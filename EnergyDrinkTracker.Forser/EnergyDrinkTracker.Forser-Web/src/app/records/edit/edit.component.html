@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Update Record</h1>
+
+  <a href="#" routerLink="/records/index" class="btn btn-primary">Back</a>
+
+  <form [formGroup]="editRecordForm" (ngSubmit)="onFormSubmit()">
+    <div class="form-group">
+      <label for="drinkDate">Drink Date: </label>
+      <input id="drinkDate" type="datetime" formControlName="drinkDate" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['drinkDate'].errors }" />
+      <div *ngIf="submitted && f['drinkDate'].errors" class="invalid-feedback">
+        <div *ngIf="f['drinkDate'].errors['required']">Drink Date is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="energyDrink">Energy Drink Name: </label>
+      <input id="energyDrink" type="text" formControlName="energyDrink" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['energyDrink'].errors }" />
+      <div *ngIf="submitted && f['energyDrink'].errors" class="invalid-feedback">
+        <div *ngIf="f['energyDrink'].errors['required']">Energy Drink Name is required</div>
+        <div *ngIf="f['energyDrink'].errors['minlength']">Energy Drink Name must be at least 4 characters</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="canSize">Can Size in Milliliters: </label>
+      <input id="canSize" type="number" formControlName="canSize" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['canSize'].errors }" />
+      <div *ngIf="submitted && f['canSize'].errors" class="invalid-feedback">
+        <div *ngIf="f['canSize'].errors['required']">Can Size is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>

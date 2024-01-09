@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Energy Drink Tracker</h1>
+
+  <a href="#" routerLink="/records/create" class="btn btn-success">Create new Record</a>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Energy Drink Name</th>
+      <th>Drink Date</th>
+      <th>Can Size</th>
+      <th width="220px">Action</th>
+    </tr>
+    <tr *ngFor="let record of records">
+      <td>{{ record.energyDrink }}</td>
+      <td>{{ record.drinkDate | date:'short' }}</td>
+      <td>{{ record.canSize }}</td>
+      <td>
+        <a href="#" routerLink="/records/edit/{{record.id}}" class="btn btn-primary">Edit</a>
+        <button type="button" (click)="deleteRecord(record.id)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

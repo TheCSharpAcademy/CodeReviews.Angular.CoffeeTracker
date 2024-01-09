@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnergyDrinkTracker.Forser API", "EnergyDrinkTracker.Forser API\EnergyDrinkTracker.Forser API.csproj", "{CD06F05A-89DF-4CDA-930E-22A538B1A960}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EnergyDrinkTracker.Forser-Web", "EnergyDrinkTracker.Forser-Web\", "{E450BBF8-F11E-4D12-A3BB-96E165C66E18}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_49597"
+		Debug.AspNetCompiler.PhysicalPath = "EnergyDrinkTracker.Forser-Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49597\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_49597"
+		Release.AspNetCompiler.PhysicalPath = "EnergyDrinkTracker.Forser-Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49597\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49597"
+		SlnRelativePath = "EnergyDrinkTracker.Forser-Web\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD06F05A-89DF-4CDA-930E-22A538B1A960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD06F05A-89DF-4CDA-930E-22A538B1A960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD06F05A-89DF-4CDA-930E-22A538B1A960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD06F05A-89DF-4CDA-930E-22A538B1A960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E450BBF8-F11E-4D12-A3BB-96E165C66E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E450BBF8-F11E-4D12-A3BB-96E165C66E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E450BBF8-F11E-4D12-A3BB-96E165C66E18}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E450BBF8-F11E-4D12-A3BB-96E165C66E18}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0610BAA8-98B1-492B-A504-3BAA406A36F5}
+	EndGlobalSection
+EndGlobal
