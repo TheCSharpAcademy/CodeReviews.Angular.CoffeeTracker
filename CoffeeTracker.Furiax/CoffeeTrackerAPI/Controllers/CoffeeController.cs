@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoffeeTrackerAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Coffee")]
     [ApiController]
     public class CoffeeController : ControllerBase
     {
