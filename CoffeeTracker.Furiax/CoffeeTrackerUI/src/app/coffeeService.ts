@@ -1,18 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Coffee-record } from './coffee-record';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Coffee } from './coffee';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class CoffeeService {
+
+  readonly apiUrl = 'http://localhost:5270/api/coffee'; // link to api
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
   constructor(private http: HttpClient) { }
 
-  formData: coffee = new coffee();// modify this
-  readonly baseUrl = 'http://localhost:5270/api/coffee'; // link to api
+  getCoffees(): Observable<Coffee[]> {
+    return this.http.get<Coffee[]>(this.apiUrl).pipe(
+      catchError(this.errorHandler<Coffee[]>('getCoffees', []))
+    );
+  }
 
-  postCoffeeRecord() {
-    return this.http.post(this.baseUrl, this.formData);//call the post function of the api and pass the model
+  errorHandler<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    };
   }
 }

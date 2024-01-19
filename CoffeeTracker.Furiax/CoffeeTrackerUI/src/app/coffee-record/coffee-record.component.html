@@ -1,1 +1,10 @@
-<p>coffee-record works!</p>
+
+<h3>Coffee overview:</h3>
+<div>
+    <ul class="coffees">
+        <li *ngFor="let coffee of coffees">
+            <span>{{coffee.id}}</span> - <span>{{coffee.numberOfCups}}x {{coffee.blend}}</span>, <span>{{coffee.time}}</span>
+        </li>
+    </ul>
+</div>
+
