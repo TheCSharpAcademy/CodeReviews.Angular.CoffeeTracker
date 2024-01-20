@@ -19,7 +19,6 @@ export class CoffeeRecordComponent {
     this.coffeeService.getCoffees()
       .subscribe(coffees => {
         this.coffees = coffees;
-        console.log(this.coffees); // Logging inside the subscribe callback
       });
   }
 }

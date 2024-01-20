@@ -1,10 +1,27 @@
 
 <h3>Coffee overview:</h3>
 <div>
-    <ul class="coffees">
-        <li *ngFor="let coffee of coffees">
-            <span>{{coffee.id}}</span> - <span>{{coffee.numberOfCups}}x {{coffee.blend}}</span>, <span>{{coffee.time}}</span>
-        </li>
-    </ul>
+    <button class="button" routerLink="/add">Add a coffee</button>
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Number</th>
+                <th>Blend</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let coffee of coffees">
+                <td>{{coffee.id}}</td>
+                <td>{{coffee.numberOfCups}}x</td>
+                <td>{{coffee.blend}}</td>
+                <td>{{coffee.time | date:'dd/MM/yy'}}</td>
+                <td><button>edit</button><button>delete</button></td>
+            </tr> 
+        </tbody>
+    </table>
 </div>
 
+//todo next:
+create detail component trough cmd
+add it to routing and path /add towards it

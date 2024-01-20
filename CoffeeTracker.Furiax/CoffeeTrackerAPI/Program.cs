@@ -1,6 +1,7 @@
 using CoffeeTrackerAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
+var MyAllowOrigins = "_myAllowOrigins";
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,23 +13,26 @@ builder.Services.AddDbContext<CoffeeContext>(opt =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddCors();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowOrigins,
+    policy =>
+    {
+        policy.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
-app.UseCors(options =>
-    options
-    //.WithOrigins("http://localhost:5270")
-    .AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader());
 // Configure the HTTP request pipeline.
+app.UseCors(MyAllowOrigins);
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 
 app.UseHttpsRedirection();
 

@@ -1,4 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   background-color: #DDB893;
+  font-family:'Comic Sans MS';
+}
+th{
+    background-color: #a37854;
+}
+td{
+    background-color: #d8ab7d;
+}
+table, th, td{
+    border: solid 1px;
+    
 }
