@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoffeeRecordComponent } from './coffee-record/coffee-record.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CoffeeDetailComponent } from './coffee-detail/coffee-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoffeeRecordComponent
+    CoffeeRecordComponent,
+    CoffeeDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -18,10 +18,11 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowOrigins,
     policy =>
     {
-        policy.WithOrigins("http://127.0.0.1:4200/")
+        policy.AllowAnyOrigin()
+        //.WithOrigins("http://127.0.0.1:4200/")
         .AllowAnyMethod()
-        .AllowAnyHeader()
-        .AllowCredentials();
+        .AllowAnyHeader();
+        //.AllowCredentials();
     });
 });
 
