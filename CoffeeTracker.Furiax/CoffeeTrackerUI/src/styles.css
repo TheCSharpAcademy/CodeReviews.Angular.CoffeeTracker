@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  background-color: #DDB893;
-  font-family:'Comic Sans MS';
+  background: linear-gradient(to right,#eac29a,#a37854);
+  font-family: 'Comic Sans MS';
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 th{
     background-color: #a37854;
@@ -9,10 +12,25 @@ th{
 td{
     background-color: #d8ab7d;
 }
-table, th, td{
+th, table{
     border: solid 1px;
+}
+th, td{
+    text-align: center;
+}
+table {
+  margin: 5px;
+  border-radius: 10px;
+}
+tr:hover td {
+  background-color: #d0b49f;
 }
 button {
   background-color: #8d7147;
-  border-radius: 3px;
+  border-radius: 10px;
+  margin: 3px;
 }
+  button:hover {
+    background-color: #271300;
+    color: #9c6f44;
+  }
