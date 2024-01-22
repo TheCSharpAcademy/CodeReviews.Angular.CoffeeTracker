@@ -45,7 +45,11 @@ getCoffeeNo404<Data>(id: number): Observable < Coffee > {
       catchError(this.errorHandler<any>('updateCoffee'))
     );
   }
-
+  addCoffee(coffee: Coffee): Observable<Coffee> {
+    return this.http.post<Coffee>(this.apiUrl, coffee, this.httpOptions).pipe(
+      catchError(this.errorHandler<Coffee>('addCoffee'))
+    );
+  }
   private errorHandler<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

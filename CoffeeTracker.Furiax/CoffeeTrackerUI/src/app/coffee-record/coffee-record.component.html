@@ -1,7 +1,7 @@
-
-<h3>Coffee overview:</h3>
+<h3>Overview:</h3>
 <div>
     <button class="button" routerLink="/add">Add a coffee</button>
+
     <table>
         <tbody>
             <tr>
@@ -17,7 +17,7 @@
                 <td>{{coffee.blend}}</td>
                 <td>{{coffee.time | date:'dd/MM/yy'}}</td>
                 <td><button routerLink="/detail/{{coffee.id}}">edit</button><button>delete</button></td>
-            </tr> 
+            </tr>
         </tbody>
     </table>
 </div>

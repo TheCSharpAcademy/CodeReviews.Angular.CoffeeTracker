@@ -1,0 +1,12 @@
+<h2>Add new consumption:</h2>
+
+<div>
+    <label for="coffee-blend">Coffee blend: </label>
+    <input id="coffee-blend" [(ngModel)]="coffee.blend" placeholder="Blend"><br>
+    <label for="coffee-number">Number of Cups: </label>
+    <input id="coffee-number" [(ngModel)]="coffee.numberOfCups" placeholder="Number of cups"><br>
+    <label for="coffee-time">Date of consumption</label>
+    <input id="coffee-time" [(ngModel)]="coffee.time" placeholder="yyyy-mm-dd">
+</div>
+<button type="button" (click)="save()">Save</button>
+<button type="button" (click)="goBack()">Back</button>
