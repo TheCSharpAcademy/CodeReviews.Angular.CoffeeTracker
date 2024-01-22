@@ -8,6 +8,6 @@ namespace CoffeeTrackerAPI.Models
         public int Id { get; set; }
         public string Blend { get; set; }
         public int NumberOfCups { get; set; }
-        public DateTime Time { get; set; } = DateTime.UtcNow;
+        public DateTime Time { get; set; }
     }
 }

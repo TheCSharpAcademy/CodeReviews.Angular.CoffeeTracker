@@ -50,6 +50,12 @@ getCoffeeNo404<Data>(id: number): Observable < Coffee > {
       catchError(this.errorHandler<Coffee>('addCoffee'))
     );
   }
+  deleteCoffee(id: number): Observable<Coffee> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<Coffee>(url, this.httpOptions).pipe(
+      catchError(this.errorHandler<Coffee>('deleteHero'))
+    );
+  }
   private errorHandler<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

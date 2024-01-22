@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 })
 export class AddCoffeeComponent {
   coffee: Coffee = {
+    id: 0,
     blend: '',
     numberOfCups: 0,
     time: new Date()

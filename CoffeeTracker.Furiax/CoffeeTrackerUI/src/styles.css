@@ -11,5 +11,8 @@ td{
 }
 table, th, td{
     border: solid 1px;
-    
+}
+button {
+  background-color: #8d7147;
+  border-radius: 3px;
 }

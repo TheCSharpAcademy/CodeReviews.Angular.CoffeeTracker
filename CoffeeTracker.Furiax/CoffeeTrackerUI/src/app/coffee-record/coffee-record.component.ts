@@ -17,8 +17,10 @@ export class CoffeeRecordComponent {
 
   getCoffees(): void {
     this.coffeeService.getCoffees()
-      .subscribe(coffees => {
-        this.coffees = coffees;
-      });
+      .subscribe(coffees => this.coffees = coffees);
+  }
+  delete(coffee: Coffee): void {
+    this.coffees = this.coffees.filter(c => c !== coffee);
+    this.coffeeService.deleteCoffee(coffee.id).subscribe();
   }
 }
