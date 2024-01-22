@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Coffee } from './coffee';
-import { Observable, of } from 'rxjs';
+import { Observable, of, map } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -61,10 +61,17 @@ getCoffeeNo404<Data>(id: number): Observable < Coffee > {
     if (!searchDate) {
       return of([]);
     }
-    return this.http.get<Coffee[]>(`${this.apiUrl}/?time=${searchDate}`).pipe(
+
+    return this.http.get<Coffee[]>(this.apiUrl).pipe(
+      map(coffees => coffees.filter(coffee => {
+        const coffeeTime = new Date(coffee.time);
+        return coffeeTime instanceof Date && coffeeTime.toISOString().split('T')[0] === searchDate.toISOString().split('T')[0];
+      })),
       catchError(this.errorHandler<Coffee[]>('searchCoffees', []))
     );
   }
+
+
   private errorHandler<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
