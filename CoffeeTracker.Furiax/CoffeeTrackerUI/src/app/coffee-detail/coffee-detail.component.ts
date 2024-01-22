@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { Coffee } from '../coffee';
 import { ActivatedRoute } from '@angular/router';
 import { CoffeeService } from '../coffeeService';
-import { Observable, catchError } from 'rxjs';
-import { Location, DatePipe } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-coffee-detail',
@@ -15,7 +14,6 @@ export class CoffeeDetailComponent {
   constructor(private route: ActivatedRoute,
     private coffeeService: CoffeeService,
     private location: Location,
-    private datePipe: DatePipe,
   ) { }
 
   ngOnInit(): void {
@@ -28,9 +26,6 @@ export class CoffeeDetailComponent {
   }
   save(): void {
     if (this.coffee) {
-      const formattedDate = this.datePipe.transform(this.coffee.time, 'dd/MM/yy');
-      this.coffee.time = new Date(formattedDate);
-
       this.coffeeService.updateCoffee(this.coffee)
         .subscribe(() => this.goBack());
     }
