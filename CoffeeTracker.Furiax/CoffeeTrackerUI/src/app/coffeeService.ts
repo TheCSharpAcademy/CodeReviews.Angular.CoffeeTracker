@@ -24,7 +24,29 @@ export class CoffeeService {
     );
   }
 
-  errorHandler<T>(operation = 'operation', result?: T) {
+  getCoffee(id: number): Observable<Coffee> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Coffee>(url).pipe(
+    catchError(this.errorHandler<Coffee>(`getCoffee id=${id}`))
+    );
+  }
+
+getCoffeeNo404<Data>(id: number): Observable < Coffee > {
+  const url = `${this.apiUrl}/${id}`;
+  return this.http.get<Coffee>(url)
+    .pipe(
+      catchError(this.errorHandler<Coffee>(`getCoffee id=${id}`))
+    );
+}
+
+  updateCoffee(coffee: Coffee): Observable<any> {
+    const url = `${this.apiUrl}/${coffee.id}`;
+    return this.http.put(url, coffee, this.httpOptions).pipe(
+      catchError(this.errorHandler<any>('updateCoffee'))
+    );
+  }
+
+  private errorHandler<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
       return of(result as T);

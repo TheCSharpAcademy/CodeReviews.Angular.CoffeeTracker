@@ -6,8 +6,7 @@ import { CoffeeDetailComponent } from './coffee-detail/coffee-detail.component';
 const routes: Routes = [
   { path: 'coffee-record', component: CoffeeRecordComponent},
   { path: '', redirectTo: 'coffee-record', pathMatch: 'full' },
-  { path: 'add', component: CoffeeDetailComponent },
-  { path: 'edit', component: CoffeeDetailComponent },
+  { path: 'detail/:id', component: CoffeeDetailComponent}
 ];
 
 @NgModule({
