@@ -7,13 +7,15 @@ import { CoffeeRecordComponent } from './coffee-record/coffee-record.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoffeeDetailComponent } from './coffee-detail/coffee-detail.component';
 import { AddCoffeeComponent } from './add-coffee/add-coffee.component';
+import { SearchCoffeeComponent } from './search-coffee/search-coffee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoffeeRecordComponent,
     CoffeeDetailComponent,
-    AddCoffeeComponent
+    AddCoffeeComponent,
+    SearchCoffeeComponent
   ],
   imports: [
     BrowserModule,

@@ -56,6 +56,15 @@ getCoffeeNo404<Data>(id: number): Observable < Coffee > {
       catchError(this.errorHandler<Coffee>('deleteHero'))
     );
   }
+
+  searchCoffees(searchDate: Date): Observable<Coffee[]> {
+    if (!searchDate) {
+      return of([]);
+    }
+    return this.http.get<Coffee[]>(`${this.apiUrl}/?time=${searchDate}`).pipe(
+      catchError(this.errorHandler<Coffee[]>('searchCoffees', []))
+    );
+  }
   private errorHandler<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
