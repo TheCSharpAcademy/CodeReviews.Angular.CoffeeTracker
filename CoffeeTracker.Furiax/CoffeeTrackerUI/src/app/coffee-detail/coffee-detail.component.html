@@ -1,14 +1,61 @@
 <div *ngIf="coffee">
-    <h2>Coffee consumption details:</h2>
-    <div><span>id: </span>{{coffee.id}}</div>
-    <div>
-        <label for="coffee-blend">Coffee blend: </label>
-        <input id="coffee-blend" [(ngModel)]="coffee.blend" placeholder="Blend"><br>
-        <label for="coffee-number">Number of Cups: </label>
-        <input id="coffee-number" [(ngModel)]="coffee.numberOfCups" placeholder="Number of cups"><br>
-        <label for="coffee-time">Date of consumption</label>
-        <input id="coffee-time" [(ngModel)]="coffee.time" placeholder="yyyy-mm-dd">
+    <div class="container mt-4">
+        <h2>Consumption:</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Id:</label>
+            </div>
+            <div class="col-md-6">
+                <input [value]="coffee.id" readonly>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="coffee-blend">Coffee blend:</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input id="coffee-blend" [(ngModel)]="coffee.blend" placeholder="Blend" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="coffee-number">Number of Cups:</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input id="coffee-number" [(ngModel)]="coffee.numberOfCups" placeholder="Number of cups" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="coffee-time">Date of consumption:</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input id="coffee-time" [(ngModel)]="coffee.time" placeholder="yyyy-mm-dd" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button type="button" (click)="save()" >Save Changes</button>
+                    <button type="button" (click)="goBack()" >Back</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <button type="button" (click)="save()">Save Changes</button>
-    <button type="button" (click)="goBack()">Back</button>
 </div>
+

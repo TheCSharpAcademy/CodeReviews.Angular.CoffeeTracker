@@ -1,4 +1,10 @@
 h1 {
-  text-decoration: underline;
-  color: #241508;
+  color: #8d7147;
+  background-color: #5e4423;
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  border-radius: 20px;
+  text-align: center;
 }
