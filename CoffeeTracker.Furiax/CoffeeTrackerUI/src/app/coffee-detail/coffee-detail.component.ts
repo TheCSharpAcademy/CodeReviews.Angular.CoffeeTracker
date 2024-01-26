@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CoffeeService } from '../coffeeService';
 import { Location } from '@angular/common';
 
+
 @Component({
   selector: 'app-coffee-detail',
   templateUrl: './coffee-detail.component.html',
@@ -13,7 +14,7 @@ export class CoffeeDetailComponent {
   coffee: Coffee | undefined;
   constructor(private route: ActivatedRoute,
     private coffeeService: CoffeeService,
-    private location: Location,
+    private location: Location
   ) { }
 
   ngOnInit(): void {

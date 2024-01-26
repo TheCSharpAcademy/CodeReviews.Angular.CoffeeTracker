@@ -2,23 +2,32 @@
 <div id="search-component">
     <label for="search-date">Select search date:</label>
     <input #searchDate id="search-date" type="date" (input)="search(searchDate.valueAsDate)" />
+    <button type="button" (click)="goBack()">Back</button>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <th>Date</th>
-                <th>Number</th>
-                <th>Blend</th>
-                <th></th>
-            </tr>
-            <tr *ngFor="let coffee of coffees$ | async">
-                <td>{{coffee.id}}</td>
-                <td>{{coffee.time | date:'dd/MM/yy'}}</td>
-                <td>{{coffee.numberOfCups}}x</td>
-                <td>{{coffee.blend}}</td>
-                <td><button routerLink="/detail/{{coffee.id}}">Edit</button></td>
-            </tr>
-        </tbody>
-    </table>
+    <ng-container *ngIf="(coffees$ | async) as coffees; ">
+        <div *ngIf="coffees.length > 0; else noRecords">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <th>Date</th>
+                        <th>Number</th>
+                        <th>Blend</th>
+                        <th></th>
+                    </tr>
+                    <tr *ngFor="let coffee of coffees">
+                        <td>{{coffee.id}}</td>
+                        <td>{{coffee.time | date:'dd/MM/yy'}}</td>
+                        <td>{{coffee.numberOfCups}}x</td>
+                        <td>{{coffee.blend}}</td>
+                        <td><button routerLink="/detail/{{coffee.id}}">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ng-container>
+
+        <ng-template #noRecords>
+            <p>There were no coffee consumptions registered for this date.</p>
+        </ng-template>
 </div>

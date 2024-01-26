@@ -3,6 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Coffee } from '../coffee';
 import { CoffeeService } from '../coffeeService';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-search-coffee',
@@ -13,7 +14,7 @@ export class SearchCoffeeComponent {
   coffees$!: Observable<Coffee[]>;
   private searchDate = new Subject<Date>();
 
-  constructor(private coffeeService: CoffeeService) { }
+  constructor(private coffeeService: CoffeeService, private location: Location) { }
 
   search(searchDate: Date | null): void {
     if (searchDate !== null) {
@@ -27,6 +28,9 @@ export class SearchCoffeeComponent {
       distinctUntilChanged(),
       switchMap((searchDate: Date) => this.coffeeService.searchCoffees(searchDate)),
     );
+  }
+  goBack(): void {
+    this.location.back();
   }
 
 }
