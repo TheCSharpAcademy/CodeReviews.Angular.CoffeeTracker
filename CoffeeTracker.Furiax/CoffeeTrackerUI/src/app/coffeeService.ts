@@ -65,17 +65,22 @@ getCoffeeNo404<Data>(id: number): Observable < Coffee > {
     return this.http.get<Coffee[]>(this.apiUrl).pipe(
       map(coffees => coffees.filter(coffee => {
         const coffeeTime = new Date(coffee.time);
-        return (
+
+        const coffeeTimeZoneOffset: number = coffeeTime.getTimezoneOffset();
+        const adjustedCoffeeTime: Date = new Date(coffeeTime.getTime() - coffeeTimeZoneOffset * 60000);
+
+        //convert searchDate and coffeeTime to string for comparison
+        const selectedDate: string = searchDate.toISOString().split('T')[0];
+        const recordDate: string = adjustedCoffeeTime.toISOString().split('T')[0];
+        
+        return(
           coffeeTime instanceof Date &&
-          this.formatDate(coffeeTime) === this.formatDate(searchDate)
+          selectedDate === recordDate
         );
       })),
 
       catchError(this.errorHandler<Coffee[]>('searchCoffees', []))
     );
-  }
-  private formatDate(date: Date): string {
-    return date.toISOString().split('T')[0];
   }
 
   private errorHandler<T>(operation = 'operation', result?: T) {
