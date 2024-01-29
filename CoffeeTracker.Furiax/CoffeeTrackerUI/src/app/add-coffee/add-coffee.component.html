@@ -1,50 +1,30 @@
 <div class="container mt-4">
     <h2>Consumption:</h2>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
+    <form class="form" #coffeeform="ngForm" (ngSubmit)="save()">
+        <div>
+            <div>
                 <label for="coffee-blend">Coffee blend:</label>
+                <input id="coffee-blend" type="text" name="blend" [(ngModel)]="coffee.blend" placeholder="Blend name" required #blend="ngModel" />
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <input id="coffee-blend" [(ngModel)]="coffee.blend" placeholder="Blend" class="form-control">
+            <div *ngIf="blend.invalid && (blend.dirty || blend.touched)" class="alert">
+                <div *ngIf="blend.errors?.['required']">Blend name is required.</div>
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="coffee-number">Number of Cups:</label>
+            <div>
+                <label for="coffee-cups">Coffees consumed:</label>
+                <input id="coffee-cups" type="number" name="cups" [(ngModel)]="coffee.numberOfCups" value="1" required #cups="ngModel" min="1" max="10" />
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <input id="coffee-number" [(ngModel)]="coffee.numberOfCups" placeholder="Number of cups" class="form-control">
+            <div *ngIf="cups.invalid && (cups.dirty || cups.touched)" class="alert">
+                <div *ngIf="cups.errors?.['required']">Number of consumptions can't be empty.</div>
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="coffee-time">Date of consumption:</label>
+            <div>
+                <label for="coffee-time">Time of consumption:</label>
+                <input id="coffee-date" type="datetime-local" name="time" [(ngModel)]="coffee.time" required #time="ngModel" />
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <input id="coffee-time" [(ngModel)]="coffee.time" type="date" class="form-control">
+            <div *ngIf="time.invalid && (time.dirty || time.touched)" class="alert">
+                <div *ngIf="time.errors?.['required']">Date is required.</div>
             </div>
+            <button type="submit" [disabled]="coffeeform.invalid">Add</button>
+            <button type="button" (click)="goBack()">Back</button>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <button type="button" (click)="save()">Add</button>
-                <button type="button" (click)="goBack()">Back</button>
-            </div>
-        </div>
-    </div>
+    </form>
 </div>
