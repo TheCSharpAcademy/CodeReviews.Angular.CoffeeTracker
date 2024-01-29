@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Coffee } from '../coffee';
 import { CoffeeService } from '../coffeeService';
 import { Location } from '@angular/common';
-import { FormControl } from '@angular/forms';
 
 
 @Component({

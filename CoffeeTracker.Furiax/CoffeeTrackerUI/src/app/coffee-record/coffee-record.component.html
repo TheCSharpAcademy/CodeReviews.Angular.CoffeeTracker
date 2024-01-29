@@ -6,16 +6,16 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <th>Date</th>
                 <th>Number</th>
                 <th>Blend</th>
+                <th>Date</th>
                 <th></th>
             </tr>
             <tr *ngFor="let coffee of coffees">
                 <td>{{coffee.id}}</td>
-                <td>{{coffee.time | date:'dd/MM/yy'}}</td>
                 <td>{{coffee.numberOfCups}}x</td>
                 <td>{{coffee.blend}}</td>
+                <td>{{coffee.time | date:'dd/MM/yy'}}</td>
                 <td><button routerLink="/detail/{{coffee.id}}">Edit</button><button (click)="delete(coffee)">Delete</button></td>
             </tr>
         </tbody>
@@ -24,6 +24,6 @@
 
 
 <!--todo: -validation
-          -search function (try to implement in homepage)
+          -delete confirmation
           -test
 -->
