@@ -20,7 +20,10 @@ export class CoffeeRecordComponent {
       .subscribe(coffees => this.coffees = coffees);
   }
   delete(coffee: Coffee): void {
-    this.coffees = this.coffees.filter(c => c !== coffee);
-    this.coffeeService.deleteCoffee(coffee.id).subscribe();
+    const confirm = window.confirm(`Are you sure you want to delete coffee record ${coffee.id}?`);
+    if (confirm) {
+      this.coffees = this.coffees.filter(c => c !== coffee);
+      this.coffeeService.deleteCoffee(coffee.id).subscribe();
+    }
   }
 }
