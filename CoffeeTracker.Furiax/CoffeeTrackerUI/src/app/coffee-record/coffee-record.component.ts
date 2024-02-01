@@ -26,4 +26,9 @@ export class CoffeeRecordComponent {
       this.coffeeService.deleteCoffee(coffee.id).subscribe();
     }
   }
+
+  sortOnDate(): void {
+    console.log('sorting');
+    this.coffees.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
+  }
 }
