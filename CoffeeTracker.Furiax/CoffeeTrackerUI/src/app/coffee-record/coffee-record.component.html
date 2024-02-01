@@ -15,7 +15,7 @@
                 <td>{{coffee.id}}</td>
                 <td>{{coffee.numberOfCups}}x</td>
                 <td>{{coffee.blend}}</td>
-                <td>{{coffee.time | date:'dd/MM/yy'}}</td>
+                <td>{{coffee.time | date:'dd/MM/yy HH:mm'}}</td>
                 <td><button routerLink="/detail/{{coffee.id}}">Edit</button><button (click)="delete(coffee)">Delete</button></td>
             </tr>
         </tbody>

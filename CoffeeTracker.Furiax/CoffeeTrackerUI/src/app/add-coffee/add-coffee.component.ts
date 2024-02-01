@@ -21,6 +21,11 @@ export class AddCoffeeComponent {
 
   save(): void {
     if (this.coffee) {
+      if (this.coffee.time instanceof Date) {
+        const timezoneOffSet = this.coffee.time.getTimezoneOffset();
+        const offsetCoffeeTime = new Date(this.coffee.time.getTime() - (timezoneOffSet * 60000));
+        this.coffee.time = offsetCoffeeTime;
+      }
       this.coffeeService.addCoffee(this.coffee)
         .subscribe(() => this.goBack());
     }

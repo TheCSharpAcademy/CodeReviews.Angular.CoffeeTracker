@@ -46,6 +46,7 @@ getCoffeeNo404<Data>(id: number): Observable < Coffee > {
     );
   }
   addCoffee(coffee: Coffee): Observable<Coffee> {
+    console.log("service: " + coffee.time);
     return this.http.post<Coffee>(this.apiUrl, coffee, this.httpOptions).pipe(
       catchError(this.errorHandler<Coffee>('addCoffee'))
     );
