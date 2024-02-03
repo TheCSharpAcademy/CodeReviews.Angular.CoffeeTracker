@@ -1,0 +1,25 @@
+<h3>Overview:</h3>
+<div>
+    <button class="button" routerLink="/add">Add a coffee</button>
+    <button class="button" routerLink="/search">Search on date</button>
+    <button class="button" (click)="sortOnDate()">Sort on date</button>
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Number</th>
+                <th>Blend</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let coffee of coffees">
+                <td>{{coffee.id}}</td>
+                <td>{{coffee.numberOfCups}}x</td>
+                <td>{{coffee.blend}}</td>
+                <td>{{coffee.time | date:'dd/MM/yy HH:mm'}}</td>
+                <td><button routerLink="/detail/{{coffee.id}}">Edit</button><button (click)="delete(coffee)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,35 @@
+<form *ngIf="coffee" class="form" #editform="ngForm" (ngSubmit)="save()">
+    <div>
+        <h2>Consumption:</h2>
+    </div>
+    <div>
+        <label>Id:</label>
+        <input [value]="coffee.id" readonly>
+    </div>
+    <div>
+        <label for="coffee-blend">Coffee blend:</label>
+        <input id="coffee-blend" type="text" name="blend" [(ngModel)]="coffee.blend" placeholder="Blend name" required #blend="ngModel" />
+    </div>
+    <div *ngIf="blend.invalid && (blend.dirty || blend.touched)" class="alert">
+        <div *ngIf="blend.errors?.['required']">Blend name is required.</div>
+    </div>
+
+    <div>
+        <label for="coffee-number">Coffees consumed:</label>
+        <input id="coffee-cups" type="number" name="cups" [(ngModel)]="coffee.numberOfCups" value="1" required #cups="ngModel" min="1" max="10" />
+    </div>
+    <div *ngIf="cups.invalid && (cups.dirty || cups.touched)" class="alert">
+        <div *ngIf="cups.errors?.['required']">Number of consumptions can't be empty.</div>
+    </div>
+    <div>
+        <label for="coffee-time">Time of consumption:</label>
+        <input id="coffee-date" type="datetime-local" name="time" [(ngModel)]="coffee.time" required #time="ngModel" />
+    </div>
+    <div *ngIf="time.invalid && (time.dirty || time.touched)" class="alert">
+        <div *ngIf="time.errors?.['required']">Date is required.</div>
+    </div>
+    <button type="submit" [disabled]="editform.invalid">Save Changes</button>
+    <button type="button" (click)="goBack()">Back</button>
+</form>
+    
+
