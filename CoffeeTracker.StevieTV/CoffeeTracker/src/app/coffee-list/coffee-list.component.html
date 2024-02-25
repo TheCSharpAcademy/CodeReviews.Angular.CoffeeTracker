@@ -1,20 +1,19 @@
-<app-add-coffee-form />
-
 <div class="container">
-  <form (ngSubmit)="filterCoffees(searchDate.valueAsDate!)" #form=ngForm>
-    <div class="row row-cols-lg-auto g-3 align-items-center mt-5 justify-content-center">
-      <div class="col">
+  <div class="row row-cols-lg-auto g-3 align-items-center mt-1 justify-content-center">
+    <div class="col">
+      <form (ngSubmit)="filterCoffees(searchDate.valueAsDate!)" #form=ngForm>
         <label class="visually-hidden" for="searchDate">searchDate</label>
         <input type="date" id="searchDate" name="searchDate" #searchDate/>
-      </div>
-      <div class="col">
-        <button type="submit" class="btn btn-success">
-            Filter
+        <button type="submit" class="btn btn-success m-3">
+          Filter
           <i class="fa fa-search" aria-hidden="true"></i>
         </button>
-      </div>
+      </form>
     </div>
-  </form>
+    <div class="col">
+      <button class="btn btn-primary" (click)="getCoffees(); searchDate.value = ''" [hidden]="!filtered">Show All</button>
+    </div>
+  </div>
 </div>
 
 <div class="row mt-5">

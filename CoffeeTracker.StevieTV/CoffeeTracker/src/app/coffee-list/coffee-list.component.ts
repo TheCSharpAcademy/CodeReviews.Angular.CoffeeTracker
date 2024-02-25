@@ -20,37 +20,23 @@ import { CoffeeService } from "../coffee.service";
 })
 export class CoffeeListComponent implements OnInit {
   coffees: Coffee[] = [];
+  filtered = false;
   constructor(private coffeeService: CoffeeService) {
   }
 
   ngOnInit(): void {
-    debugger;
     this.getCoffees();
   }
   getCoffees() {
-    debugger;
     this.coffeeService.getCoffees()
       .subscribe(coffees => this.coffees = coffees);
+    this.filtered = false;
   }
-  // addCoffee(date: Date, coffeeType: string) {
-  //   coffeeType = coffeeType.trim();
-  //   if (!date) { return; }
-  //   this.coffeeService.addCoffee({ time: date, coffeeType: coffeeType } as Coffee)
-  //     .subscribe((coffee: Coffee) => this.coffees.push(coffee));
-  //
-  // }
 
   filterCoffees(searchDate: Date){
-    this.getCoffees();
-    if (searchDate != null) {
-      searchDate.setHours(0,0,0);
-
-    this.coffees = this.coffees.filter(c => {
-        // console.log(new Date(c.time).getTime() === searchDate.getTime());
-        return new Date(c.time).getTime() === searchDate.getTime();
-      }
-    );
-    }
+    this.coffeeService.filterCoffeeByDate(searchDate)
+      .subscribe(coffees => this.coffees = coffees)
+    this.filtered = true;
   }
 
   deleteCoffee(coffee: Coffee) {

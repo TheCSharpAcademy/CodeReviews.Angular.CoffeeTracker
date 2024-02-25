@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { catchError, Observable, of } from "rxjs";
+import { catchError, filter, map, Observable, of } from "rxjs";
 import { environment } from "../environments/environment";
 import { Coffee } from "./coffee.model";
 
@@ -40,6 +40,22 @@ export class CoffeeService {
         catchError(this.handleError<Coffee>('deleteHero'))
       );
 
+  }
+
+  filterCoffeeByDate(searchDate: Date): Observable<Coffee[]> {
+    debugger;
+    if (!searchDate){
+      return of([])
+    }
+    searchDate.setHours(0,0,0);
+    return this.http.get<Coffee[]>(this.url)
+      .pipe(
+        map(coffees =>
+          coffees.filter(coffee =>
+            new Date(coffee.time).getTime() === searchDate.getTime()
+          )),
+        catchError(this.handleError<Coffee[]>('filterCoffeeByDate', []))
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: any[]) {

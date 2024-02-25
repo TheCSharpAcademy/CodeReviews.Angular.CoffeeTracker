@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { Coffee } from "../coffee.model";
 import { CoffeeService } from "../coffee.service";
@@ -16,12 +16,13 @@ import { Location } from "@angular/common";
 export class AddCoffeeFormComponent {
   coffee: Coffee = {
     id: 0,
-    time: new Date(),
+    time: new Date(Date.now()),
     coffeeType: ''
   }
 
   constructor(private coffeeService: CoffeeService, private location: Location) {
   }
+
   onSubmit() {
     this.coffeeService.addCoffee(this.coffee)
       .subscribe();
