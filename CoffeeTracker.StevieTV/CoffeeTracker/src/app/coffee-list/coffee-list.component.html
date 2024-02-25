@@ -1,19 +1,17 @@
 <div class="container">
-  <div class="row row-cols-lg-auto g-3 align-items-center mt-1 justify-content-center">
-    <div class="col">
-      <form (ngSubmit)="filterCoffees(searchDate.valueAsDate!)" #form=ngForm>
-        <label class="visually-hidden" for="searchDate">searchDate</label>
-        <input type="date" id="searchDate" name="searchDate" #searchDate/>
-        <button type="submit" class="btn btn-success m-3">
+      <form (ngSubmit)="filterCoffees(searchDate.valueAsDate!)" #form=ngForm class="row col-6 offset-3 g-3 align-items-center mt-1 justify-content-center">
+        <div class="col-12">
+        <div class="input-group mb-3">
+        <label class="visually-hidden form-label" for="searchDate">searchDate</label>
+        <input type="date" class="form-control" id="searchDate" name="searchDate" #searchDate/>
+        <button type="submit" class="btn btn-success">
           Filter
           <i class="fa fa-search" aria-hidden="true"></i>
         </button>
+          <button class="btn btn-primary" type="button" (click)="getCoffees(); searchDate.value = ''" [hidden]="!filtered">Show All</button>
+        </div>
+        </div>
       </form>
-    </div>
-    <div class="col">
-      <button class="btn btn-primary" (click)="getCoffees(); searchDate.value = ''" [hidden]="!filtered">Show All</button>
-    </div>
-  </div>
 </div>
 
 <div class="row mt-5">
@@ -39,4 +37,5 @@
     </tr>
     </tbody>
   </table>
+  <h4 *ngIf="coffees.length == 0">No coffees recorded for this date</h4>
 </div>

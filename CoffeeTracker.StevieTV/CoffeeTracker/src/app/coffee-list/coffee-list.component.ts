@@ -1,4 +1,4 @@
-import { DatePipe, NgForOf } from "@angular/common";
+import { DatePipe, NgForOf, NgIf } from "@angular/common";
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AddCoffeeFormComponent } from "../add-coffee-form/add-coffee-form.component";
@@ -13,7 +13,8 @@ import { CoffeeService } from "../coffee.service";
     DatePipe,
     AddCoffeeFormComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './coffee-list.component.html',
   styleUrl: './coffee-list.component.css'
