@@ -1,0 +1,6 @@
+@CoffeeTrackerAPI_HostAddress = http://localhost:5221
+
+GET {{CoffeeTrackerAPI_HostAddress}}/api/coffee/
+Accept: application/json
+
+###

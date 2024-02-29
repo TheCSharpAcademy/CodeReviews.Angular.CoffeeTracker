@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="bg-warning-subtle text-center py-5 rounded-2">
+    <div class="row">
+      <div class="col-2">
+        <i class="fa fa-coffee fa-3x" aria-hidden="true"></i>
+      </div>
+      <div class="col-8">
+        <h1 class="display-6 fw-bold">Coffee Tracker</h1>
+      </div>
+      <div class="col-2">
+        <i class="fa fa-coffee fa-3x" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-8 offset-2">
+      <div class="container border border-success rounded-3 my-5 py-0">
+        <app-add-coffee-form/>
+      </div>
+      <div class="container border border-primary rounded-3 my-5 py-0">
+        <app-coffee-list/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet/>
