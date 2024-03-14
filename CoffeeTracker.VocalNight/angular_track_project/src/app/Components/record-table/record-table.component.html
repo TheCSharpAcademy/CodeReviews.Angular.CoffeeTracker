@@ -1,0 +1,52 @@
+<div class="mainLayout">
+    <div>
+        <label>
+            <label class="m-2 text-stone-400 font-bold" for="name">Date Filter</label>
+            <input
+                class="shadow bg-stone-500 text-gray-950 appearance-none border rounded py-2 px-3  leading-tight focus:outline-none focus:shadow-outline m-2"
+                id="quantity" type="date" name="date" [(ngModel)]="dateField">
+            <button type="button" class="bg-amber-700 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded"
+                (click)="onFilter()">Filter</button>
+
+            <button type="button" class="bg-amber-700 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded ml-1"
+                (click)="onClear()">Clear</button>
+            <br>
+
+        </label>
+    </div>
+    <div>
+        <button type="button" class="bg-amber-700 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded m-2"
+            (click)="addRecord()">Add Record</button>
+    </div>
+
+    @if (filteredRecord.length == 0) {
+    <div class="m-2 text-stone-400 font-bold">No Data!</div>
+    } @else {
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Quantity</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @for (record of filteredRecord; track record) {
+                <tr>
+                    <td>{{record.id}}</td>
+                    <td>{{record.quantity}} ml</td>
+                    <td>{{record.date}}</td>
+                    <td>
+                        <button type="button"
+                            class="bg-amber-700 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded"
+                            (click)="deleteItem(record.id)">Delete</button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    }
+</div>

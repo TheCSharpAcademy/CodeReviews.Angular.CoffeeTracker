@@ -1,0 +1,16 @@
+<div class="mainLayout m-2">
+    <div class="mb-10">
+        <label class="text-stone-400 font-bold text-3xl">Coffee Tracker</label>
+    </div>
+
+    <div>
+        <app-record-table [coffeeRecords]="coffeeRecords" (deleteClicked)="onDelete($event)"
+            (showModal)="onInclude($event)"></app-record-table>
+    </div>
+
+    <div>
+        @if (showModal) {
+        <app-record-modal (addedItem)="onAddedItem($event)"></app-record-modal>
+        }
+    </div>
+</div>
