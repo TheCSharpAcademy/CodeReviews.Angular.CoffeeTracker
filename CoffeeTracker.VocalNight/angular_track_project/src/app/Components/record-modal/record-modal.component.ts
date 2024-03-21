@@ -11,6 +11,7 @@ import { CoffeeTrackerHttpService } from '../../../Services/coffee-tracker-http.
 })
 export class RecordModalComponent {
   coffeeQuantity = 0;
+  isQuantityValid = true;
 
   @Output() addedItem = new EventEmitter<any>();
 
@@ -20,11 +21,16 @@ export class RecordModalComponent {
     let date = new Date();
     let currentMonth = date.getMonth() + 1;
 
-    console.log(date.getDate().toString().length);
-
     let month = date.getMonth().toString().length == 1 ? "0" + currentMonth : date.getMonth();
     let day = date.getDate().toString().length == 1 ? "0" + date.getDate() : date.getDate();
 
+    if (this.coffeeQuantity < 0) {
+      this.isQuantityValid = false;
+      return;
+    } 
+
+    this.isQuantityValid = false;
+    
     this.addedItem.emit({
       quantity: this.coffeeQuantity,
       date: [date.getFullYear(), month, day].join('-')

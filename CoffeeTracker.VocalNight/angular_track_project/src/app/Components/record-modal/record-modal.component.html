@@ -2,9 +2,12 @@
     <div class="modal">
 
         <label class="m-2 text-stone-400 font-bold" for="quantity">Coffee Quantity:</label>
+        @if (!isQuantityValid) {
+            <div class="m-2 text-red-700 font-bold">Quantity can't be negative</div>
+        }
         <input
             class="shadow bg-stone-500 text-gray-950 appearance-none border rounded py-2 px-3  leading-tight focus:outline-none focus:shadow-outline m-2"
-            id="quantity" type="number" [(ngModel)]="coffeeQuantity" />
+            id="quantity" type="number" [(ngModel)]="coffeeQuantity" /> 
 
         <button type="button" class="bg-amber-700 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded m-2"
             (click)="addItem()">Add Item

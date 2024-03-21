@@ -14,7 +14,9 @@ export class RecordTableComponent implements OnInit {
 
   @Input() coffeeRecords!: BehaviorSubject<any>;
   filteredRecord: CoffeeRecords[] = [];
-  dateField: Date = new Date();
+  dateFieldStart: Date = new Date();
+  dateFieldEnd: Date = new Date();
+  dateFieldValid = true;
 
   @Output() showModal = new EventEmitter<boolean>();
   @Output() deleteClicked = new EventEmitter<number>();
@@ -31,10 +33,16 @@ export class RecordTableComponent implements OnInit {
   }
 
   onFilter() {
+    if (this.dateFieldStart > this.dateFieldEnd) {
+      this.dateFieldValid = false;
+      return;
+    }
+    this.dateFieldValid = true;
+
     this.coffeeRecords.subscribe({
       next: records => {
         console.log(records);
-        this.filteredRecord = records.filter((record: { date: Date; }) => record.date == this.dateField)
+        this.filteredRecord = records.filter((record: { date: Date; }) => record.date >= this.dateFieldStart && record.date <= this.dateFieldEnd)
       },
       error: e => console.error("Api error", e)
     });
