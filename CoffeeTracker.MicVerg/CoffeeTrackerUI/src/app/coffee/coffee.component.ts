@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { CoffeeService } from '../coffee.service';
+import { Coffee } from '../coffee.model';
 
 @Component({
   selector: 'app-coffee',
@@ -15,11 +16,13 @@ export class CoffeeComponent implements OnInit{
 
   constructor(private coffeeService: CoffeeService) {}
 
-  //httpClient = inject(HttpClient);
   apiUrl: string = 'https://localhost:7288/api/coffees/';
-  data: any = [];
+  coffeeData: any[] = [];
 
   ngOnInit(): void {
-    this.coffeeService.getCoffee();
+    this.coffeeService.getCoffee().subscribe((data: Coffee[]) => {
+      console.log(data);
+      this.coffeeData = data;
+    });
   }
  }

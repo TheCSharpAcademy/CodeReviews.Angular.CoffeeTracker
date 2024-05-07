@@ -1,7 +1,22 @@
-<ul>
-    <li *ngFor="let coffee of data">
-        <h3>{{coffee.id}}</h3>
-        <h3>{{coffee.amountOfCups}}</h3>
-        <h3>{{coffee.timestamp}}</h3>
-    </li>
-</ul>
+<div style="display: flex; align-items: center;">
+    <img src="assets/images/coffee.png" width="150" height="150" alt="Coffee">
+    <h1>Coffee tracker</h1>
+</div>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Amount of cups</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let coffee of coffeeData">
+        <td>{{coffee.id}}</td>
+        <td>{{coffee.amountOfCups}}</td>
+        <td>{{coffee.timestamp | date:'dd-MM-yyyy hh:mm'}}</td>
+        </tr>
+    </tbody>
+</table>
