@@ -4,9 +4,9 @@
     <h3>
         <div>
             <form (ngSubmit)="filterCoffees(selectedDate.valueAsDate!)" #form=ngForm>
-                <label for="selectedDate">Filter date</label>
-                <input type="date" class="form-control" id="selectedDate" name="selectedDate" #selectedDate/>
-                <button type="submit" class="btn">
+                <label for="selectedDate" style="margin-right: 20px">Filter date</label>
+                <input type="date" style="margin-right: 20px" class="form-control" id="selectedDate" name="selectedDate" #selectedDate/>
+                <button type="submit" class="btn" style="margin-right: 20px">
                   Filter
                 </button>
                   <button class="btn" type="button" (click)="getCoffee(); selectedDate.value = ''">Show All</button>

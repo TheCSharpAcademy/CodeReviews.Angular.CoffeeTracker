@@ -132,3 +132,14 @@ button:hover {
     background-color: green;
     font-family: 'Montserrat', sans-serif; /* Apply Montserrat font */
 }
+
+input[type="date"] {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    border-radius: 0.25rem;
+}
+
