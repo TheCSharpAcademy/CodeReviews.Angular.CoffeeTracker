@@ -1,6 +1,18 @@
-<div style="display: flex; align-items: center;">
+<div style="display: flex; align-items: center; justify-content: space-between;">
     <img src="assets/images/coffee.png" width="150" height="150" alt="Coffee">
     <h1>Coffee tracker</h1>
+    <h3>
+        <div>
+            <form (ngSubmit)="filterCoffees(selectedDate.valueAsDate!)" #form=ngForm>
+                <label for="selectedDate">Filter date</label>
+                <input type="date" class="form-control" id="selectedDate" name="selectedDate" #selectedDate/>
+                <button type="submit" class="btn">
+                  Filter
+                </button>
+                  <button class="btn" type="button" (click)="getCoffee(); selectedDate.value = ''">Show All</button>
+              </form>
+        </div>
+    </h3>
 </div>
 
 
@@ -16,7 +28,7 @@
         <tr *ngFor="let coffee of coffeeData">
         <td>{{coffee.id}}</td>
         <td>{{coffee.amountOfCups}}</td>
-        <td>{{coffee.timestamp | date:'dd-MM-yyyy hh:mm'}}</td>
+        <td>{{coffee.timestamp | date:'dd-MM-yyyy'}}</td>
         </tr>
     </tbody>
 </table>
