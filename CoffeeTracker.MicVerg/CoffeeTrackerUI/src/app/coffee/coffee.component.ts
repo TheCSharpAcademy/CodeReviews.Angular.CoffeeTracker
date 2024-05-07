@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { CoffeeService } from '../coffee.service';
 
 @Component({
   selector: 'app-coffee',
@@ -11,20 +12,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './coffee.component.css'
 })
 export class CoffeeComponent implements OnInit{
-  httpClient = inject(HttpClient);
+
+  constructor(private coffeeService: CoffeeService) {}
+
+  //httpClient = inject(HttpClient);
   apiUrl: string = 'https://localhost:7288/api/coffees/';
   data: any = [];
 
   ngOnInit(): void {
-    this.fetchCoffee();
-  }
-
-  fetchCoffee() {
-    this.httpClient
-      .get(this.apiUrl)
-      .subscribe((data: any) => {
-        console.log(data);
-        this.data = data;
-      });
+    this.coffeeService.getCoffee();
   }
  }
