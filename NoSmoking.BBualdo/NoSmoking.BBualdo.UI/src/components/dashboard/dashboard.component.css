@@ -1,0 +1,129 @@
+/* Mobile */
+@media (max-width: 771px) {
+  .dashboard__container {
+    margin-top: 40px;
+  }
+
+  .smoke-logs__panel {
+    padding: 12px;
+  }
+
+  input {
+    width: 150px;
+  }
+
+  .smoke-logs__header {
+    grid-template-columns: 50px repeat(2, minmax(0, 1fr)) 80px;
+
+    font-size: 1rem;
+  }
+
+  .smoke-log {
+    grid-template-columns: 50px repeat(2, minmax(0, 1fr)) 80px;
+    font-size: 1rem;
+  }
+
+  .quantity {
+    text-align: center;
+  }
+}
+/* Desktop */
+@media (min-width: 772px) {
+  .smoke-logs__panel {
+    padding: 20px;
+  }
+
+  input {
+    width: 200px;
+  }
+
+  .smoke-logs__header {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) 80px;
+    font-size: 1.25rem;
+  }
+
+  .smoke-log {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) 80px;
+    font-size: 1.25rem;
+  }
+}
+
+.dashboard__container {
+  height: 100%;
+}
+
+.smoke-logs__container {
+  margin-top: 40px;
+}
+
+.smoke-logs__box {
+  border: 2px solid var(--bloodRed);
+  margin-top: 20px;
+}
+
+.smoke-logs__panel {
+  background-color: var(--bloodRedHover);
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  background-color: black;
+  border: 4px solid var(--bloodRed);
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 2px;
+  outline: none;
+  padding: 12px;
+  text-align: center;
+}
+
+input:hover {
+  background-color: var(--bloodRedHover);
+}
+
+input::placeholder {
+  color: white;
+}
+
+.smoke-logs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.smoke-logs__header {
+  display: grid;
+  font-weight: bold;
+  border-bottom: 2px solid var(--bloodRed);
+  padding-bottom: 20px;
+}
+
+.smoke-log {
+  display: grid;
+  font-weight: bold;
+}
+
+.action-buttons {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.edit__btn,
+.delete__btn {
+  background-color: black;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.edit__btn:hover > svg {
+  fill: yellow;
+}
+
+.delete__btn:hover > svg {
+  fill: var(--bloodRed);
+}
