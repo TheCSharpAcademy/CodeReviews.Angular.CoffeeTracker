@@ -57,5 +57,19 @@ export class CoffeeComponent implements OnInit{
       }
     });
   }
+
+  onDeleteSubmit(idToDelete: string){
+    let parsedID = parseInt(idToDelete);
+    this.coffeeService.deleteCoffee(parsedID).subscribe({
+      next: (addedCoffee) => {
+        this.coffeeService.getCoffee().subscribe((updatedCoffees) => {
+          this.coffeeData = updatedCoffees;
+        });
+      },
+      error: (err) => {
+        console.error('Failed to add coffee:', err);
+      }
+    });
+  }
   
  }

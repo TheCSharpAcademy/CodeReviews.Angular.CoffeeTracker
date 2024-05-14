@@ -44,6 +44,14 @@ export class CoffeeService {
     );
   };
 
+  deleteCoffee(id: number): Observable<unknown> {
+    const deleteUrl = `${this.apiUrl}${id}`;
+    return this.http.delete<Coffee>(deleteUrl, this.httpOptions)
+      .pipe(
+        catchError(this.handleError('deleteCoffee'))
+      );
+  };
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
