@@ -38,5 +38,16 @@ export class CoffeeComponent implements OnInit{
         this.coffeeData = coffeeData;
       });
   }
+
+  onSubmit(addAmountOfCups: string) {
+    let parsedAmount = parseInt(addAmountOfCups);    
+    
+    const newCoffee: Coffee = {
+      amountOfCups: parsedAmount,
+      timestamp: new Date()
+    }
+    this.coffeeService.addCoffee(newCoffee)
+     .subscribe();
+  }
   
  }

@@ -1,6 +1,6 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, map, filter } from 'rxjs';
+import { Observable, of, map, filter, catchError } from 'rxjs';
 import { Coffee } from './coffee.model';
 
 @Injectable({
@@ -8,6 +8,12 @@ import { Coffee } from './coffee.model';
 })
 export class CoffeeService {
   private apiUrl: string = 'https://localhost:7288/api/coffees/';
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+
   constructor(private http: HttpClient) { }
 
   getCoffee(): Observable<Coffee[]> {
@@ -29,6 +35,22 @@ export class CoffeeService {
           })
         )
       );
-  }  
+  }
+
+  addCoffee(coffee: Coffee): Observable<Coffee> {
+    return this.http.post<Coffee>(this.apiUrl, coffee, this.httpOptions)
+      .pipe(
+        catchError(this.handleError<Coffee>('addCoffee'))
+    );
+  };
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      console.error('Error response:', error.error);
+      return of(result as T);
+    };
+  }
+  
  }
 

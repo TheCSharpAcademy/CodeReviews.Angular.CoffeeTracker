@@ -1,5 +1,5 @@
 export interface Coffee {
-    id: number;
+    id?: number;
     amountOfCups: number;
     timestamp: Date;
 }
