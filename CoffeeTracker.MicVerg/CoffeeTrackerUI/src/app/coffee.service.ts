@@ -1,6 +1,6 @@
-import { HttpClient, HttpClientModule, HttpHeaders, HttpEvent } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, map, filter, catchError } from 'rxjs';
+import { Observable, of, map, catchError } from 'rxjs';
 import { Coffee } from './coffee.model';
 
 @Injectable({

@@ -1,7 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
 import { CoffeeService } from '../coffee.service';
 import { Coffee } from '../coffee.model';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
