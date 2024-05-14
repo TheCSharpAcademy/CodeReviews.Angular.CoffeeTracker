@@ -46,8 +46,16 @@ export class CoffeeComponent implements OnInit{
       amountOfCups: parsedAmount,
       timestamp: new Date()
     }
-    this.coffeeService.addCoffee(newCoffee)
-     .subscribe();
+    this.coffeeService.addCoffee(newCoffee).subscribe({
+      next: (addedCoffee) => {
+        this.coffeeService.getCoffee().subscribe((updatedCoffees) => {
+          this.coffeeData = updatedCoffees;
+        });
+      },
+      error: (err) => {
+        console.error('Failed to add coffee:', err);
+      }
+    });
   }
   
  }
