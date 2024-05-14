@@ -17,7 +17,7 @@
 
 <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px; margin-bottom: 20px;">
     <h3>
-        <form (ngSubmit)="onSubmit(addAmountOfCups.value)" #form=ngForm>
+        <form (ngSubmit)="onAddSubmit(addAmountOfCups.value)" #form=ngForm>
             <label for="addAmountOfCups" style="margin-right: 20px">Amount of cups:</label>
             <input type="text" style="height: 25px; margin-right: 20px" class="form-control" id="addAmountOfCups" name="addAmountOfCups" #addAmountOfCups/>
             <button type="submit" class="btn" style="margin-right: 20px">

@@ -39,7 +39,7 @@ export class CoffeeComponent implements OnInit{
       });
   }
 
-  onSubmit(addAmountOfCups: string) {
+  onAddSubmit(addAmountOfCups: string) {
     let parsedAmount = parseInt(addAmountOfCups);    
     
     const newCoffee: Coffee = {
