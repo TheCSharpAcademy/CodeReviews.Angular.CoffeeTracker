@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --lightPink: rgb(255, 198, 198);
+  --bloodRed: rgb(179, 0, 0);
+  --bloodRedHover: rgba(179, 0, 0, 0.445);
+}
+
+body {
+  background-color: black;
+  height: 100vh;
+}
+
+/* Mobile */
+@media (max-width: 771px) {
+  main {
+    padding: 16px;
+  }
+
+  .primary__btn {
+    font-size: 1rem;
+    height: 40px;
+  }
+}
+/* Desktop */
+@media (min-width: 772px) {
+  main {
+    padding: 40px;
+  }
+
+  .primary__btn {
+    font-size: 1.25rem;
+    height: 60px;
+  }
+}
+
+main {
+  height: 100%;
+}
+
+.primary__btn {
+  align-items: center;
+  background-color: black;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 0 var(--bloodRed);
+  cursor: pointer;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  padding: 0 24px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.primary__btn:hover {
+  background-color: var(--bloodRedHover);
+}
+
+.primary__btn:active {
+  box-shadow: none;
+  top: 4px;
+}
+
+.back__btn {
+  background-color: black;
+  border: 4px solid var(--bloodRed);
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.back__btn:hover {
+  background-color: var(--bloodRedHover);
+}
+
+.secondary__btn {
+  background-color: black;
+  border: 4px solid var(--bloodRed);
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 6px 20px;
+}
+
+.secondary__btn:hover {
+  background-color: var(--bloodRedHover);
+}

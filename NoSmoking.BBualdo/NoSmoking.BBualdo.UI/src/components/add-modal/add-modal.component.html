@@ -1,0 +1,40 @@
+@if (isOpen) {
+  <div class="backdrop">
+    <div class="modal">
+      <div class="modal__header">
+        <p>Add Log</p>
+        <button (click)="closeModal()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="32px"
+            viewBox="0 -960 960 960"
+            width="32px"
+          >
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <form (ngSubmit)="addForm()" [formGroup]="addFormGroup">
+        <div class="input__container">
+          <label for="date">When did you smoke?</label>
+          <input
+            type="text"
+            placeholder="Select Date"
+            onfocus="
+            this.type='datetime-local'; 
+            this.showPicker()"
+            formControlName="date"
+            [max]="maxDate"
+          />
+        </div>
+        <div class="input__container">
+          <label for="quantity">How much cigarettes?</label>
+          <input type="number" formControlName="quantity" min="1" max="20" />
+        </div>
+        <button class="primary__btn" type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+}
