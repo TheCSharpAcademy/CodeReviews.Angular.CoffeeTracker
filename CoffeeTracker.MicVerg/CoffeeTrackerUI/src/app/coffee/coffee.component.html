@@ -1,0 +1,60 @@
+<div style="display: flex; align-items: center; justify-content: space-between;">
+    <img src="assets/images/coffee.png" width="150" height="150" alt="Coffee">
+    <h1>Coffee tracker</h1>
+    <h3>
+        <div>
+            <form (ngSubmit)="filterCoffees(selectedDate.valueAsDate!)" #form=ngForm>
+                <label for="selectedDate" style="margin-right: 20px">Filter date</label>
+                <input type="date" style="margin-right: 20px" class="form-control" id="selectedDate" name="selectedDate" #selectedDate/>
+                <button type="submit" class="btn" style="margin-right: 20px">
+                  Filter
+                </button>
+                  <button class="btn" type="button" (click)="getCoffee(); selectedDate.value = ''">Show All</button>
+              </form>
+        </div>
+    </h3>
+</div>
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; margin-bottom: 20px;">
+    <h3>
+        <div style="text-align: left;">
+            <form (ngSubmit)="onAddSubmit(addAmountOfCups.value)" #form=ngForm>
+                <label for="addAmountOfCups" style="margin-right: 20px">Amount of cups:</label>
+                <input type="text" style="height: 25px; margin-right: 20px" class="form-control" id="addAmountOfCups" name="addAmountOfCups" #addAmountOfCups/>
+                <button type="submit" class="btn" style="margin-right: 20px">
+                    Add
+                </button>
+            </form>
+        </div>
+    </h3>
+    
+    <h3>
+        <div style="text-align: right;">
+            <form (ngSubmit)="onDeleteSubmit(idToDelete.value)" #form=ngForm>
+                <label for="idToDelete" style="margin-right: 20px">ID to delete:</label>
+                <input type="text" style="height: 25px; margin-right: 20px" class="form-control" id="idToDelete" name="idToDelete" #idToDelete/>
+                <button type="submit" class="btn" style="margin-right: 20px">
+                    Delete
+                </button>
+            </form>
+        </div>
+    </h3>
+</div>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Amount of cups</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let coffee of coffeeData">
+        <td>{{coffee.id}}</td>
+        <td>{{coffee.amountOfCups}}</td>
+        <td>{{coffee.timestamp | date:'dd-MM-yyyy'}}</td>
+        </tr>
+    </tbody>
+</table>
