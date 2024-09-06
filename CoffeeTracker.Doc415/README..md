@@ -32,3 +32,5 @@ TypeScript: Superset of JavaScript used for the development.
 HTML/CSS: Markup and styling of the user interface.
 
 ASP.NET Core Web API: Backend framework for managing coffee data and providing RESTful services.
+
+
