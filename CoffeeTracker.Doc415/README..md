@@ -11,6 +11,7 @@ In AngularClient directory run "npm install"
 Start server with "ng serve"
 
 
+
 **Application**
 
 This application is used to track daily coffee consumption to stay healty and sharp.
@@ -20,6 +21,7 @@ You can add different coffee types from left selection buttons. Each selection w
 Todays consumption is listed on the right side and each one can be removed by clicking.
 
 Click floating button "Past cups" on the bottom right side to filter coffee consumption per date. A dialog page will open for date filtering.
+
 
 
 **Technologies Used**
