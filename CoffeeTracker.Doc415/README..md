@@ -10,7 +10,7 @@ In AngularClient directory run "npm install"
 
 Start server with "ng serve"
 
-
+***********************************************************************************************************************************************
 
 **Application**
 
@@ -22,9 +22,10 @@ Todays consumption is listed on the right side and each one can be removed by cl
 
 Click floating button "Past cups" on the bottom right side to filter coffee consumption per date. A dialog page will open for date filtering.
 
-
+***********************************************************************************************************************************************
 
 **Technologies Used**
+
 Angular 18: Frontend framework for building the application.
 
 TypeScript: Superset of JavaScript used for the development.
