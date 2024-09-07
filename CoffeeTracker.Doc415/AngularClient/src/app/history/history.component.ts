@@ -15,7 +15,7 @@ export class HistoryComponent {
   private httpClient=inject(HttpClient);
   private _coffeeService=inject(CoffeeService)
 
- onClose=output<boolean>();
+ onClose=output<void>();
 selectedDate='';
 coffeesOnSelectedDate=signal<Coffee[]>([]);
 
@@ -29,6 +29,6 @@ onDateChange(event:any){
 }
 
 closeDialog() {
-  this.onClose.emit(false);
+  this.onClose.emit();
 }
 }

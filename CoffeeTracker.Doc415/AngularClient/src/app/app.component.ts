@@ -73,7 +73,7 @@ export class AppComponent {
     this.isHistoryOpen=true;
   }
 
-  closeHistoryDialog(isOpen:boolean){
-    this.isHistoryOpen=isOpen;
+  closeHistoryDialog(){
+    this.isHistoryOpen=false;
   }
 }
