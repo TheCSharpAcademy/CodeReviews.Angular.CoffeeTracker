@@ -11,16 +11,22 @@
       
     </ul>
   </div>
-  <div>
-    <h3>Today's Coffee Buzz</h3>
-    @if (todaysCoffees().length>0) {
-    <app-consumption-list [todaysCoffees]="todaysCoffees()" (onDelete)="onDeleteCoffee($event)"/>
-    } @else {
-    <p id="fallback">No coffees today yet?</p>
-    }
-    <button class="floating-btn" (click)="toggleHistoryDialog()">Past Cups</button>
+  @if(isLoading){
+    <app-spinner/>
+  }
+  @else {
+    <div>
+      <h3>Today's Coffee Buzz</h3>
+      @if (todaysCoffees().length>0) {
+      <app-consumption-list [todaysCoffees]="todaysCoffees()" (onDelete)="onDeleteCoffee($event)"/>
+      } @else {
+      <p id="fallback">No coffees today yet?</p>
+      }
+      <button class="floating-btn" (click)="toggleHistoryDialog()">Past Cups</button>
+  
+    </div>
+  }
 
-  </div>
 
 </main>
 

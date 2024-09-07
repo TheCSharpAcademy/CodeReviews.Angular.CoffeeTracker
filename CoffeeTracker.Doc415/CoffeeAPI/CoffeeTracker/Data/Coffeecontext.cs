@@ -25,7 +25,6 @@ public class Coffeecontext : DbContext
             ("Filtered Coffee", "filtered_k.jpg")
         };
 
-        // Generate random number of coffee entries (1-6)
         var random = new Random();
 
         var coffeeEntries = new List<Coffee>();
@@ -36,14 +35,13 @@ public class Coffeecontext : DbContext
 
             coffeeEntries.Add(new Coffee
             {
-                Id = Guid.NewGuid().ToString(), // Generate a new unique identifier for each coffee
+                Id = Guid.NewGuid().ToString(), 
                 Name = coffeeType.Name,
                 Avatar = coffeeType.Avatar,
                 ConsumptionDate = consumptionDate
             });
         }
-
-        // Seed the data
+  
         modelBuilder.Entity<Coffee>().HasData(coffeeEntries);
     }
 }
