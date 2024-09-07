@@ -8,6 +8,7 @@ import { ConsumptionListComponent } from "./consumption-list/consumption-list.co
 import { HistoryComponent } from "./history/history.component";
 import { HttpClient } from '@angular/common/http';
 import { SpinnerComponent } from "./spinner/spinner.component";
+import { CoffeeService } from './coffee.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ import { SpinnerComponent } from "./spinner/spinner.component";
 
 export class AppComponent {
   private httpClient=inject(HttpClient);
+  private _coffeeService=inject(CoffeeService);
   isLoading=true;
   title = 'coffeeTracker';
   coffeeList=coffeList;
@@ -31,16 +33,15 @@ export class AppComponent {
    }
 
   onDeleteCoffee(coffeeId:string){
-    this.httpClient.delete(`https://localhost:7273/api/Coffees/${coffeeId}`).subscribe({
-      next: resData => this.todaysCoffees.set(this.todaysCoffees().filter(coffee=> coffee.id!==coffeeId)),
+    this._coffeeService.deleteCoffee(coffeeId).subscribe({
+      next:  ()=> this.todaysCoffees.set(this.todaysCoffees().filter(coffee=> coffee.id!==coffeeId)),
       error: err=> console.log(err)
-    }
-   
+    }   
     );
   }
 
   onSelectCoffee(coffeeSelected:Coffee){
-      this.httpClient.post<Coffee>("https://localhost:7273/api/Coffees",coffeeSelected).subscribe({
+      this._coffeeService.addCoffee(coffeeSelected).subscribe({
         next: resData => this.todaysCoffees.set([...this.todaysCoffees(),resData]),
         error: err=> console.log(err)
       }
@@ -55,7 +56,7 @@ export class AppComponent {
     const currentDate =  new Date().toISOString().split('T')[0];
     const formattedDate = encodeURIComponent(currentDate);
     
-      this.httpClient.get<Coffee[]>(`https://localhost:7273/api/Coffees/${formattedDate}`).subscribe({
+      this._coffeeService.getCoffees(formattedDate).subscribe({
         next: resData => {
                           this.todaysCoffees.set([...resData]);
                           this.isLoading=false;
