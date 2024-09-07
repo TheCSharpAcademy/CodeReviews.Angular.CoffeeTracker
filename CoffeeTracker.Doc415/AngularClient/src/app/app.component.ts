@@ -54,9 +54,9 @@ export class AppComponent {
 
   async getCoffees(){
     const currentDate =  new Date().toISOString().split('T')[0];
-    const formattedDate = encodeURIComponent(currentDate);
+    const today = encodeURIComponent(currentDate);
     
-      this._coffeeService.getCoffees(formattedDate).subscribe({
+      this._coffeeService.getCoffeesAtDate(today).subscribe({
         next: resData => {
                           this.todaysCoffees.set([...resData]);
                           this.isLoading=false;

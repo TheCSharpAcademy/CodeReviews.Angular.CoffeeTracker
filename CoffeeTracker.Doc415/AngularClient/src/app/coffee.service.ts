@@ -18,7 +18,8 @@ export class CoffeeService {
       return this.httpClient.post<Coffee>(`${this.url}`,coffeeSelected)
     }
 
-    getCoffees(date:string){
-      return this.httpClient.get<Coffee[]>(`https://localhost:7273/api/Coffees/${date}`)
+
+    getCoffeesAtDate(date:string){
+      return this.httpClient.get<Coffee[]>(`${this.url}${date}`)
     }
 }
