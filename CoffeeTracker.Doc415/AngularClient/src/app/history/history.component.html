@@ -1,0 +1,23 @@
+<div class="backdrop" (click)="closeDialog()"></div>
+<dialog open>
+  <h2>Pick a date</h2>
+    <p>
+      <label for="history-date">Date</label>
+      <input type="date" id="history-date" name="history-date" (change)="onDateChange($event)"/>
+    </p>
+
+@if(coffeesOnSelectedDate().length>0){
+  <header>Coffee sips:</header>
+  <ul>
+    @for(coffee of coffeesOnSelectedDate();track coffee.id){
+      <li>
+        <app-coffe [coffee]="coffee" [isInHistoryList]="true"/>
+      </li>
+    }
+  </ul>
+}
+@else {
+  <h3>No sips at this date.</h3>
+}
+    <button class="close" (click)="closeDialog()">Close</button>
+</dialog>

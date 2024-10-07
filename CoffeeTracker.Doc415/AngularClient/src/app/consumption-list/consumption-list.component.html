@@ -1,0 +1,9 @@
+<section id="todaysBuzz">
+  <ul>
+    @for (coffee of todaysCoffees();track coffee){
+    <li>
+        <app-coffe [coffee]="coffee" (onSelect)="removeCoffee(coffee)" [isInTodaysList]="true"/>
+    </li>
+    }
+  </ul>
+</section>

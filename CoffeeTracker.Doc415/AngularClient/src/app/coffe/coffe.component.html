@@ -1,0 +1,6 @@
+<div>
+    <button [class.toDelete]="isInTodaysList()" [class.history]="isInHistoryList()"(click)="onSelectCoffee()">
+      <img [src]="imagePath()" />
+      <span>{{ coffee().name }}</span>
+    </button>
+  </div>

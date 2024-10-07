@@ -1,0 +1,36 @@
+<app-header />
+<main>
+  <div>
+    <h3>Take a cup of...</h3>
+    <ul class="coffes">
+      @for (coffee of coffeeList;track coffee.name){
+      <li>
+        <app-coffe [coffee]="coffee" (onSelect)="onSelectCoffee($event)" />
+      </li>
+      }
+      
+    </ul>
+  </div>
+  @if(isLoading){
+    <app-spinner/>
+  }
+  @else {
+    <div>
+      <h3>Today's Coffee Buzz</h3>
+      @if (todaysCoffees().length>0) {
+      <app-consumption-list [todaysCoffees]="todaysCoffees()" (onDelete)="onDeleteCoffee($event)"/>
+      } @else {
+      <p id="fallback">No coffees today yet?</p>
+      }
+      <button class="floating-btn" (click)="toggleHistoryDialog()">Past Cups</button>
+  
+    </div>
+  }
+
+
+</main>
+
+@if(isHistoryOpen){
+  <app-history (onClose)="closeHistoryDialog()"/>
+  
+}
