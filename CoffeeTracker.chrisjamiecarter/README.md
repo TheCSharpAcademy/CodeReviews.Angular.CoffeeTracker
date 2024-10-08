@@ -10,13 +10,14 @@ It allows users to visualise their coffee intake. They can add, update and delet
 
 This application fulfills the following [The C# Academy - Coffee Tracker](https://thecsharpacademy.com/project/32/Coffee%20Tracker) project requirements:
 
-- [x] In this app you'll keep data about the friendships you want to cultivate.
-- [x] You can choose which properties you want to have in your "Friend" model, except that you need to have a "LastContactDate" and a "LastContactType" and a "Desired Contact Frequency" properties
-- [x] You're also required to have a "Category" table, which will be linked to your "Friends" table by a foreign key.
-- [x] Users should be able to easily visualize the friends that are getting the least attention (i.e. Last contact date has been longer than desired contact frequency)
-- [x] When adding a new friend, the form should contain a dropdown with the Category.
-- [x] You need to use Redux for state management.
-- [x] You need to handle validation and server errors.
+- [x] This is an application where you should record your consumption of coffee.
+- [x] You can choose something else to track, in case you're not a coffee person.
+- [x] You should create two projects: A.NET WebApi and an Angular app.
+- [x] You can choose whatever database solution you want: Sqlite, SQL server or whatever you're comfortable with.
+- [x] You can choose whatever ORM you want: Dapper, EF, ADO.NET.
+- [x] You should have a filter functionality, so I can select records per date.
+- [x] Your database should have a single 'Records' table.The objective is to focus on Angular, so we should avoid the complexities of relational data.
+- [x] You CANNOT use Angular Material.
 
 ## Features
 
@@ -26,7 +27,7 @@ This application fulfills the following [The C# Academy - Coffee Tracker](https:
 	- The edit and delete pages are implemented as modals.
 - **Form Validation**:
 	- Form validation will ensure correct values before form submission.
-- **Toatr**:
+- **Toastr**:
 	- Displays success, error and warning toasts when performing actions.
 - **External API**:
 	- The coffee records service interfaces with an API.
@@ -150,9 +151,7 @@ Once the Web application is running:
 
 ## How It Works
 
-- **Page Display**: This project was bootstrapped via `create-react-app` and uses React to render the components of the web application.
 - **Page Display**: This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
-- **State Management**: Redux is used to manage the state within the web application.
 - **API Integration**: Fetch is used to call the External API.
 - **Data Storage**: A new SQL Server database is created and the required schema is set up at run-time, or an existing database is used if previously created.
 - **Data Access**: Interaction with the database is via Entity Framework Core.
@@ -162,4 +161,4 @@ Once the Web application is running:
 ![entity relationship diagram](./_resources/entity-relationship-diagram.png)
 
 ---
-***Happy Friends Managing!***
+***Happy Coffee Tracking!***
