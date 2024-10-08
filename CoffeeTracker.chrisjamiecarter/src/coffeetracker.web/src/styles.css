@@ -1,0 +1,248 @@
+/* You can add global styles to this file, and also import other style files */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-width: 0;
+  color: inherit;
+}
+
+:root {
+  --primary-color: #6f4e37ff;
+  --secondary-color: #f5e6ccff;
+  --accent-color: #d2b48cff;
+  --shadow-color: #0000001a;
+  --black-color: #0f0f0fff;
+  --gray-color: #808080ff;
+  --white-color: #f0f0f0ff;
+  --lower-box-shadow: 0 4px 6px -1px var(--shadow-color),
+    0 2px 4px -2px var(--shadow-color);
+  --upper-box-shadow: 0 -4px 6px 1px var(--shadow-color),
+    0 -2px 4px 2px var(--shadow-color);
+}
+
+html {
+  font-size: calc(60% + 0.8vmin);
+}
+
+* {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+body,
+input[type="date"] {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr {
+  background-color: var(--secondary-color);
+  color: var(--black-color);
+  border: 1px solid var(--black-color);
+}
+
+tr:hover {
+  background-color: var(--accent-color);
+}
+
+th {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: left;
+}
+
+td {
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+td {
+  padding: 0.25rem 0.5rem;
+}
+
+th {
+  padding: 0.5rem;
+}
+
+.section-heading {
+  color: var(--primary-color);
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  transition-duration: 300ms;
+  cursor: pointer;
+  line-height: 1.25rem;
+  padding: 0.625rem 2rem;
+  border-radius: 0.375rem;
+  width: 7rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+}
+
+.btn-secondary {
+  background-color: darkgray;
+  color: var(--white-color);
+}
+
+.btn-secondary:hover {
+  background-color: gray;
+  color: var(--white-color);
+}
+
+.btn-danger {
+  background-color: red;
+  color: var(--secondary-color);
+}
+
+.btn-danger:hover {
+  background-color: darkred;
+  color: var(--secondary-color);
+}
+
+.btn-icon {
+  padding: 0.375rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  border-radius: 0.375rem;
+  display: flex;
+  align-content: center;
+}
+
+.btn-icon:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.btn-icon:focus {
+  outline: none;
+}
+
+.icon {
+  min-width: 0.875rem;
+  max-width: 0.875rem;
+  min-height: 0.875rem;
+  max-height: 0.875rem;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+form.submitted input.ng-invalid {
+  border-color: red;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: var(--white-color);
+  box-shadow: var(--lower-box-shadow);
+  border-radius: 0.375rem;
+  padding: 1.5rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.modal-label {
+  color: var(--primary-color);
+}
+
+.modal-date {
+  color: var(--black-color);
+  background-color: var(--white-color);
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 0.375rem;
+  display: block;
+  width: 100%;
+}
+
+.modal-text {
+  color: var(--black-color);
+  background-color: var(--white-color);
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 0.375rem;
+  display: block;
+  width: 100%;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  margin-top: 1.5rem;
+}
+
+input:read-only {
+  background-color: lightgray;
+}
+
+input:read-only:focus {
+  outline: none;
+}
+
+input:read-only:hover {
+  cursor: default;
+}

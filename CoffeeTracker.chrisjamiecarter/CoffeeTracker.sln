@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE062075-6B62-4C4D-A6E8-A599E7632A48}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{629680CA-FFA1-4046-9680-F806977A6EB1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeTracker.Api", "src\CoffeeTracker.Api\CoffeeTracker.Api.csproj", "{2A6E86BD-F9F9-4548-80BE-6B91BD0619D6}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "coffeetracker.web", "src\coffeetracker.web\coffeetracker.web.esproj", "{D38DDAB4-6F82-43AA-869D-7CBF4F3A6411}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A6E86BD-F9F9-4548-80BE-6B91BD0619D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6E86BD-F9F9-4548-80BE-6B91BD0619D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A6E86BD-F9F9-4548-80BE-6B91BD0619D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A6E86BD-F9F9-4548-80BE-6B91BD0619D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38DDAB4-6F82-43AA-869D-7CBF4F3A6411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38DDAB4-6F82-43AA-869D-7CBF4F3A6411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38DDAB4-6F82-43AA-869D-7CBF4F3A6411}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D38DDAB4-6F82-43AA-869D-7CBF4F3A6411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38DDAB4-6F82-43AA-869D-7CBF4F3A6411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38DDAB4-6F82-43AA-869D-7CBF4F3A6411}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2A6E86BD-F9F9-4548-80BE-6B91BD0619D6} = {629680CA-FFA1-4046-9680-F806977A6EB1}
+		{D38DDAB4-6F82-43AA-869D-7CBF4F3A6411} = {629680CA-FFA1-4046-9680-F806977A6EB1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDE31E7A-E08E-493F-A466-A88E531D426D}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,31 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h2 class="section-heading">Delete Coffee Record</h2>
+    <div class="modal-body">
+      <div>
+        <label class="modal-label" for="name">Name</label>
+        <input
+          id="name"
+          class="modal-text"
+          type="text"
+          value="{{ coffeeRecord!.name }}"
+          readonly
+        />
+      </div>
+      <div>
+        <label class="modal-label" for="date">Date</label>
+        <input
+          id="date"
+          class="modal-text"
+          type="text"
+          value="{{ coffeeRecord!.date | date : 'yyyy-MM-dd' }}"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="modal-buttons">
+      <button class="btn btn-danger" (click)="onConfirm()">Delete</button>
+      <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+    </div>
+  </div>
+</div>
