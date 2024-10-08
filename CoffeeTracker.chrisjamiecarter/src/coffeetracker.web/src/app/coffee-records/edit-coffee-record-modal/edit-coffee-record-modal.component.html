@@ -1,0 +1,41 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h2 class="section-heading">Edit Coffee Record</h2>
+    <form
+      [formGroup]="editCoffeeRecordForm"
+      (keydown.enter)="$event.preventDefault()"
+      (submit)="onConfirm()"
+      [class.submitted]="formSubmitted"
+      autocomplete="off"
+    >
+      <div class="modal-body">
+        <div>
+          <label class="modal-label" for="name">Name</label>
+          <input
+            id="name"
+            class="modal-text"
+            type="text"
+            formControlName="name"
+            required
+          />
+        </div>
+        <div>
+          <label class="modal-label" for="date">Date</label>
+          <input
+            id="date"
+            class="modal-date"
+            type="date"
+            formControlName="date"
+            required
+          />
+        </div>
+      </div>
+      <div class="modal-buttons">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

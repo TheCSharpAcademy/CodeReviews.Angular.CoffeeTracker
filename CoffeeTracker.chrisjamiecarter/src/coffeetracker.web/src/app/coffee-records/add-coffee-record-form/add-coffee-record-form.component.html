@@ -1,0 +1,36 @@
+<section class="form-container">
+  <h2 class="section-heading">Add Coffee Record</h2>
+  <form
+    [formGroup]="addCoffeeRecordForm"
+    (keydown.enter)="$event.preventDefault()"
+    (submit)="onSubmit()"
+    [class.submitted]="formSubmitted"
+    autocomplete="off"
+  >
+    <div class="form-content">
+      <div>
+        <label class="form-label" for="name">Name</label>
+        <input
+          id="name"
+          class="form-text"
+          type="text"
+          formControlName="name"
+          required
+        />
+      </div>
+      <div>
+        <label class="form-label" for="date">Date</label>
+        <input
+          id="date"
+          class="form-date"
+          type="date"
+          formControlName="date"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-buttons">
+      <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+  </form>
+</section>

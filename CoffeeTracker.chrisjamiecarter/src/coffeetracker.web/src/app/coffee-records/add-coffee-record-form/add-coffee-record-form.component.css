@@ -1,0 +1,54 @@
+.form-container {
+  background-color: var(--white-color);
+  box-shadow: var(--lower-box-shadow);
+  border-radius: 0.375rem;
+  padding: 1.5rem;
+  max-width: 56rem;
+  margin: 0 auto 2.5rem auto;
+}
+
+.form-content {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .form-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.form-label {
+  color: var(--primary-color);
+}
+
+.form-date {
+  color: var(--black-color);
+  background-color: var(--white-color);
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 0.375rem;
+  display: block;
+  width: 100%;
+}
+
+.form-text {
+  color: var(--black-color);
+  background-color: var(--white-color);
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 0.375rem;
+  display: block;
+  width: 100%;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  margin-top: 1.5rem;
+}
