@@ -1,0 +1,6 @@
+@CoffeeTracker_HostAddress = http://localhost:5064
+
+GET {{CoffeeTracker_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
