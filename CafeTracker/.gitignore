@@ -1,0 +1,41 @@
+# =========================
+# .NET
+# =========================
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+appsettings.Development.json
+
+# Visual Studio
+.vs/
+
+# Rider
+.idea/
+
+# =========================
+# Angular / Node
+# =========================
+node_modules/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db

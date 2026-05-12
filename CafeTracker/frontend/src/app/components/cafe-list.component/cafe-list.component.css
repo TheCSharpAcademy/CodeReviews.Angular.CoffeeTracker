@@ -1,0 +1,160 @@
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #3b1f0e;
+}
+
+.filters {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filters div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.filters label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.filters input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.filters input:focus {
+  border-color: #6f3d1f;
+}
+
+
+.filter-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.filter-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.filter-actions button:first-child {
+  background-color: #6f3d1f;
+  color: white;
+}
+
+.filter-actions button:first-child:hover {
+  background-color: #3b1f0e;
+}
+
+.filter-actions button:last-child {
+  background-color: white;
+  color: #6f3d1f;
+  border: 1px solid #6f3d1f;
+}
+
+.filter-actions button:last-child:hover {
+  background-color: #fdf5f0;
+}
+
+.btn-add {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.55rem 1.2rem;
+  background-color: #6f3d1f;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
+}
+
+.btn-add:hover {
+  background-color: #3b1f0e;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+thead {
+  background-color: #6f3d1f;
+  color: white;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+tbody tr:hover {
+  background-color: #fdf5f0;
+}
+
+td a {
+  color: #6f3d1f;
+  text-decoration: none;
+  margin-right: 0.75rem;
+  font-weight: 500;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+td button {
+  background: none;
+  border: none;
+  color: #c0392b;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0;
+}
+
+td button:hover {
+  text-decoration: underline;
+}
+
+.filters select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  background-color: white;
+  cursor: pointer;
+}
+
+.filters select:focus {
+  border-color: #6f3d1f;
+}
+
+.error {
+  color: #c0392b;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}

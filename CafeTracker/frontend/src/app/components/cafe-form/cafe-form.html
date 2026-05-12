@@ -1,0 +1,79 @@
+<div class="container">
+  <h2>{{ isEditMode() ? 'Edit Record' : 'Add Record' }}</h2>
+
+  @if (errorMessage()) {
+    <p class="error">{{ errorMessage() }}</p>
+  }
+
+ <form (submit)="onSubmit($event)">
+
+  <div class="form-group">
+    <label for="productName">Product Name</label>
+    <input
+      id="productName"
+      type="text"
+      [ngModel]="cafeModel().productName"
+      (ngModelChange)="cafeModel.update(m => ({ ...m, productName: $event }))"
+      name="productName"
+      placeholder="e.g. Espresso"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select
+      id="category"
+      [ngModel]="cafeModel().category"
+      (ngModelChange)="cafeModel.update(m => ({ ...m, category: +$event }))"
+      name="category"
+    >
+      <option value="0">Select Category</option>
+      @for (cat of productCategories; track cat.value) {
+        <option [value]="cat.value">{{ cat.label }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="quantity">Quantity</label>
+    <input
+      id="quantity"
+      type="number"
+      [ngModel]="cafeModel().quantity"
+      (ngModelChange)="cafeModel.update(m => ({ ...m, quantity: +$event }))"
+      name="quantity"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="dateConsumed">Date Consumed</label>
+    <input
+      id="dateConsumed"
+      type="date"
+      [ngModel]="cafeModel().dateConsumed"
+      (ngModelChange)="cafeModel.update(m => ({ ...m, dateConsumed: $event }))"
+      name="dateConsumed"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="notes">Notes (optional)</label>
+    <textarea
+      id="notes"
+      [ngModel]="cafeModel().notes"
+      (ngModelChange)="cafeModel.update(m => ({ ...m, notes: $event }))"
+      name="notes"
+      placeholder="Any notes..."
+      rows="3">
+    </textarea>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit">
+      {{ isEditMode() ? 'Update' : 'Add' }}
+    </button>
+    <button type="button" (click)="onCancel()">Cancel</button>
+  </div>
+
+</form>
+</div>

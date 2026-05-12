@@ -1,0 +1,89 @@
+<div class="container">
+  <h2>Cafe Records</h2>
+
+  <!-- filters -->
+ <div class="filters">
+  <div>
+    <label for="productNameFilter">Product Name:</label>
+    <input
+      type="text"
+      id="productNameFilter"
+      placeholder="e.g. Espresso"
+      [ngModel]="filterProductName()"
+        (ngModelChange)="filterProductName.set($event)"
+    />
+  </div>
+
+  <div>
+    <label for="dateFilter">Date:</label>
+    <input
+      type="date"
+      id="dateFilter"
+      [ngModel]="filterDate()"
+        (ngModelChange)="filterDate.set($event)"
+    />
+  </div>
+
+  <div>
+    <label for="categoryFilter">Category:</label>
+    <select
+      id="categoryFilter"
+      [ngModel]="filterCategory()"
+      (ngModelChange)="filterCategory.set($event)"
+    >
+      <option value="0">All Categories</option>
+      @for (category of productCategories; track category) {
+        <option [value]="category.value">{{ category.label }}</option>
+      }
+    </select> 
+  </div>
+
+  <div class="filter-actions">
+    <button (click)="onSearch()">Search</button>
+    <button (click)="onClearFilters()">Clear</button>
+  </div>
+</div>
+
+  <!-- error message -->
+  @if (errorMessage()) {
+    <p class="error">{{ errorMessage() }}</p>
+  }
+
+
+  <!-- add new record button -->
+  <a routerLink="/add" class="btn-add">+ Add Record</a>
+
+  <!-- records table -->
+  @if (cafeRecords().length > 0) {
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Quantity</th>
+          <th>Date Consumed</th>
+          <th>Notes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (record of cafeRecords(); track record.id) {
+          <tr>
+            <td>{{ record.productName }}</td>
+            <td>{{  record.category }}</td>
+            <td>{{ record.quantity }}</td>
+            <td>{{ record.dateConsumed | date:'MMMM dd, yyyy' }}</td>
+            <td>{{ record.notes || '-' }}</td>
+            <td>
+              <a [routerLink]="['/edit', record.id]">Edit</a>
+              <button (click)="deleteRecord(record.id)">Delete</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <p>No records found.</p>
+  }
+
+</div>
